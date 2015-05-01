@@ -1,2 +1,2 @@
 # youngwisdom
-This is a commercial web site www.youngwisdom.com.cn
+This is an UI refactoring project for commercial web site www.youngwisdom.com.cn

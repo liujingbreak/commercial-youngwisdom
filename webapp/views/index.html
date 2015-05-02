@@ -11,7 +11,8 @@
 		<script type="text/javascript" src="/vendor/modernizr.custom.87166.js"></script>
 		<script type="text/javascript" src="/vendor/angularjs/angular.min.js"></script>
 		<script type="text/javascript" src="/vendor/angularjs/angular-route.min.js"></script>
-		<script type="text/javascript" src="/js/ywLandingModule.js"></script>
+		<script type="text/javascript" src="/js/i18n/text-zh-CN.js"></script>
+		<script type="text/javascript" src="/dist/js/youngwisdom.js"></script>
 	</head>
 	<body ng-controller="main">
 		<div class="header">
@@ -26,7 +27,7 @@
 			</div>
 		</div>
 		<!--{{random}}-->
-		
+		<div ng-include="'views/sign-up-screen.html'" class="screen screen-signup"></div>
 		<script type="text/javascript" src="/vendor/lodash.min.js"></script>
 		<script type="text/javascript" src="/vendor/TweenMax.min.js"></script>
 	</body>

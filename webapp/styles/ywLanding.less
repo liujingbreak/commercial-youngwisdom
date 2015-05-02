@@ -1,0 +1,112 @@
+
+@text-color: #535353;
+@unit: 22px;
+@unit-small: 16px;
+
+html,body{
+	font-family: '黑体',sans-serif;
+	height: 100%;
+	color: @text-color;
+	font-size: @unit;
+}
+
+a{
+	text-decoration: none;
+}
+
+h1, h2, h3, h4, h5{
+	margin: 0;
+}
+
+@header-height: 88px;
+.header{
+	position: absolute;
+	height: @header-height;
+	line-height: @header-height;
+	width: 100%;
+	color: white;
+	
+	.logo{
+		font-size: @unit * 2;
+		vertical-align: middle;
+		display: inline-block;
+		color: white;
+		padding-left: @unit *2;
+	}
+}
+
+.nav{
+	position: absolute;
+	right: @unit * 2;
+	top: 0;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	a{
+		vertical-align: middle;
+		display: inline-block;
+		color: white;
+		font-size: @unit-small;
+		padding: 0 1em;
+		min-width: @unit * 2;
+	}
+}
+
+@media all and (max-width: 700px){
+	.header{
+		.logo{
+			padding-left:0;
+		}
+	}
+	.nav{
+		right: 0;
+	}
+}
+
+.screen{
+	width: 100%;
+	height: 100%;
+}
+.screen-signup{
+	color: white;
+	background: url(/images/hero-background-luke.jpg) top center/cover;
+	
+	text-align: center;
+	h1{
+		padding: 0.67em 0;
+	}
+	.desc{
+		font-size: @unit-small;
+		line-height: 200%;
+	}
+	.content{
+		display: inline-block;
+		width: 65%;
+		vertical-align:middle;
+		
+	}
+	&:before{
+		vertical-align:middle;
+		content: "";
+		display: inline-block;
+		width: 35%;
+		font-size: 0;
+		height: 100%;
+	}
+}
+
+@media all and (max-width: 700px){
+	.screen-signup{
+		.content{
+			width: 100%;
+		}
+		&:before{
+			width: 0;
+		}
+	}
+}
+@media all and (min-height: 600px){
+	.screen{
+		height: 600px;
+	}
+}

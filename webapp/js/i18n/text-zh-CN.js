@@ -1,4 +1,4 @@
-angular.module('ywText', []).factory('msg', function(){
+angular.module('ywText', []).factory('t', function(){
 	return {
 		logoText: '帮帮忙',
 		home_page: '主页',

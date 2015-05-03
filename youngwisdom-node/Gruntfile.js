@@ -34,7 +34,7 @@ module.exports = function (grunt) {
 		concat:{
 			js: {
 				files:{
-					'<%=dest_dir%>/js/youngwisdom.js': ['<%=src_dir%>/js/**/*.js', '!<%=src_dir%>/js/i18n/*.js']
+					'<%=dest_dir%>/js/youngwisdom.js': ['<%=src_dir%>/js/modules.js', '<%=src_dir%>/js/**/*.js', '!<%=src_dir%>/js/i18n/*.js']
 				}
 			}
 		}

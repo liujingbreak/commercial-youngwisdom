@@ -22,7 +22,7 @@ module.exports = function (grunt) {
 		
 		watch:{
 			js:{
-				files:[ '<%=src_dir%>/js/*.js', '!<%=src_dir%>/js/i18n/*.js'],
+				files:[ '<%=src_dir%>/js/**/*.js', '!<%=src_dir%>/js/i18n/*.js'],
 				tasks: ['concat:js']
 			},
 			less:{

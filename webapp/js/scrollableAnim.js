@@ -1,6 +1,6 @@
 /**
 attrs: object contains properties like
-	- duration : number
+	- duration : number (optional)
 	- offset : number - also you may use triggerElement instead
 	- triggerElement: element|selector - 
 		triggered when offset reaches element's offset top - viewport's height
@@ -16,8 +16,12 @@ function AnimScene(attrs){
 	_.extend(this, attrs);
 	
 	this.status = -1; //not started, 0 - happening, 1 - stopped
+	
 	if(this.triggerElement){
-		this.offset = $(this.triggerElement).offset().top - $( window ).height();
+		if(typeof(this.triggerElement) === 'string'){
+			this.triggerElement = $(this.triggerElement);
+		}
+		this.offset = this.triggerElement.offset().top - $( window ).height();
 		
 		if(!this.duration)
 			this.duration = Math.max($(this.triggerElement).prop('scrollHeight'), $( window ).height());

@@ -14,20 +14,20 @@
 		<script type="text/javascript" src="/js/i18n/text-zh-CN.js"></script>
 		<script type="text/javascript" src="/dist/js/youngwisdom.js"></script>
 	</head>
-	<body ng-controller="main">
+	<body ng-controller="main" yw-scrollable>
 		<div class="header">
 			<a class="logo" href="/">{{t.logoText}}</a>
 			<div class="nav">
-				<a href="/" >{{t.home_page}}</a>
-				<a href="/#/feature" >{{t.feature}}</a>
-				<a href="/#/signup" >{{t.signup}}</a>
-				<a href="/#/community" >{{t.community}}</a>
-				<a href="/#/signin" >{{t.signin}}</a>
-				<a href="/#/team" >{{t.team}}</a>
+				<a class="yw-link" href="/">{{t.home_page}}</a>
+				<a class="yw-link" href="/#/feature" >{{t.feature}}</a>
+				<a class="yw-link" href="/#/signup" >{{t.signup}}</a>
+				<a class="yw-link" href="/#/community" >{{t.community}}</a>
+				<a class="yw-link" href="/#/signin" >{{t.signin}}</a>
+				<a class="yw-link" href="/#/team" >{{t.team}}</a>
 			</div>
 		</div>
 		<!--{{random}}-->
-		<div ng-include="'views/sign-up-screen.html'" class="screen screen-signup"></div>
+		<div id="screen-signup" ng-include="'views/sign-up-screen.html'" class="screen"></div>
 		<script type="text/javascript" src="/vendor/lodash.min.js"></script>
 		<script type="text/javascript" src="/vendor/TweenMax.min.js"></script>
 	</body>

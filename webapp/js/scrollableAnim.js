@@ -32,7 +32,6 @@ function AnimScene(attrs){
 	}
 	this.end = this.offset + this.duration;
 	
-	
 	/** @property scrollPanel - will be setup by ScrollableAmin.addScene()*/
 }
 
@@ -104,6 +103,8 @@ AnimScene.prototype = {
 			if(this.onScroll){
 				this.onScroll(this.duration, 1);
 			}
+		}else{
+			//console.log(position + ' ' + this.offset + ' '+ this.end + ' '+ this.status);
 		}
 	}
 }

@@ -10,13 +10,12 @@ return {
 			$timeout(function(){
 				var scrollable = new ScrollableAnim($($window));
 				scrollable.scene({
-						triggerElement: '#screen-signup',
-						delayPercent: 15,
+						offset: 15,
+						duration: 400,
 						startup: function(rev){
 							if(!rev){
 								header.addClass('header-fixed');
 							}else{
-								console.log('here');
 								header.removeClass('header-fixed');
 							}
 						}

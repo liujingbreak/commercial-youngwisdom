@@ -20,6 +20,7 @@ h1, h2, h3, h4, h5{
 
 @header-height: 88px;
 @fixed-header-height: 66px;
+@header-transition: height .5s ease, padding-left .5s ease, color .5s ease, background-color .5s ease, right .5s ease;
 
 .header{
 	position: absolute;
@@ -35,19 +36,24 @@ h1, h2, h3, h4, h5{
 		display: inline-block;
 		color: white;
 		padding-left: @unit *2;
+		transition: @header-transition;
 	}
-	transition: all 0.25s linear;
+	transition: @header-transition;
 	
 	&.header-fixed{
 		position: fixed;
 		height: @fixed-header-height;
 		line-height: @fixed-header-height;
-		background-color: rgba(255, 255, 255, 0.8);
+		background-color: rgba(255, 255, 255, 0.95);
 		.logo{
 			color: @text-color;
+			padding-left: @unit;
 		}
-		.nav a{
-			color: @text-color;
+		.nav{
+			right: @unit;
+			a{
+				color: @text-color;
+			}
 		}
 	}
 }
@@ -60,6 +66,7 @@ h1, h2, h3, h4, h5{
 	display: inline-block;
 	vertical-align: middle;
 	text-align: center;
+	transition: @header-transition;
 	a{
 		vertical-align: middle;
 		display: inline-block;
@@ -67,7 +74,7 @@ h1, h2, h3, h4, h5{
 		font-size: @unit-small;
 		padding: 0 1em;
 		min-width: @unit * 2;
-		
+		transition: @header-transition;
 	}
 }
 

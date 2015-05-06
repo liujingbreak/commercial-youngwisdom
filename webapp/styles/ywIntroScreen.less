@@ -1,0 +1,90 @@
+@import "variables.less";
+
+#screen-intro{
+	background: rgb(246,246,246);
+	height: auto;
+	h1{
+		text-align: center;
+	}
+	p{
+		text-align: center;
+		font-size: @unit-small;
+	}
+	
+	.background{
+		height: 424px;
+		width: 100%;
+		top: 0;
+		z-index: -1;
+		background: url(/images/emily.jpg) top center;
+		background-size: 1147px 424px;
+	}
+	
+	.timeline-section{
+		max-width: 870px;
+		position: relative;
+		top: -80px;
+		margin: 0 auto;
+		.glyphicon{
+			position: absolute;
+			top: 44px;
+			font-size: @unit-small;
+		}
+	}
+	.timeline{
+		position: relative;
+		top: 8px;
+		width: 100%;
+		height: 2px;
+		background-color: #D1D1D1;
+	}
+	.line-dot{
+		box-sizing: content-box;
+		width: 12px;
+		height: 12px;
+		border: 2px solid #D1D1D1;
+		top: -7px;
+		background-color: #FFF;
+		border-radius: 8px;
+		position: absolute;
+		&.lightened{
+			border: 2px solid #EF6D44;
+		}
+	}
+	.anim-timeline{
+		position: relative;
+		width: 0%;
+		height: 2px;
+		background-color: #EF6D44;
+	}
+	.steps{
+		margin: auto;
+		max-width: 1000px;
+		text-align: center;
+		padding-bottom: 3em;
+	}
+	.step{
+		p, h3{
+			text-align: left;
+			padding: 0 6px;
+		}
+		display: inline-block;
+		vertical-align: top;
+		width: 25%;
+		color: #999999;
+		font-size: @unit-small;
+	}
+	.glyphicon{
+		color: #419088;
+		font-size: @unit;
+	}
+}
+
+@media all and (max-width: 700px){
+	#screen-intro{
+		.step{
+			display: block;
+			width: 100%;
+		}
+	}
+}

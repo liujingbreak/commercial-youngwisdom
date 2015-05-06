@@ -1,0 +1,54 @@
+@import "variables.less";
+
+#screen-signup{
+	position: relative;
+	color: white;
+	height: auto;
+	
+	.background{
+		position: absolute;
+		height: 900px;
+		width: 100%;
+		top: 0;
+		z-index: -1;
+		background: url(/images/hero-background-luke.jpg) top center/cover;
+	}
+	
+	text-align: center;
+	h1{
+		padding: 0.67em 0;
+	}
+	.desc{
+		font-size: @unit-small;
+		line-height: 200%;
+	}
+	.content{
+		display: inline-block;
+		width: 65%;
+		margin: @header-height 0 0 35%;
+		vertical-align:middle;
+		min-height: 70%;
+	}
+	&:before{
+		vertical-align:middle;
+		content: "";
+		display: inline-block;
+		width: 0;
+		font-size: 0;
+		height: 100%;
+	}
+}
+
+.linechart{
+	position:relative;
+	height: 250px;
+}
+
+@media all and (max-width: 700px){
+	#screen-signup{
+		.content{
+			width: 100%;
+			margin-left: 0;
+		}
+	}
+}

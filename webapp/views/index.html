@@ -6,7 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="author" content="liujing.break@gmail.com">
 		<link rel="stylesheet" type="text/css" href="/vendor/normalize.css">
-		<link rel="stylesheet" type="text/css" href="/dist/styles/youngwisdom.css?r={{random}}">
+		<link rel="stylesheet" type="text/css" href="/vendor/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/dist/styles/youngwisdom.css">
 		<script type="text/javascript" src="/vendor/jquery-1.11.1.js"></script>
 		<script type="text/javascript" src="/vendor/modernizr.custom.87166.js"></script>
 		<script type="text/javascript" src="/vendor/angularjs/angular.min.js"></script>
@@ -28,7 +29,12 @@
 		</div>
 		<!--{{random}}-->
 		<div id="screen-signup" ng-include="'views/sign-up-screen.html'" class="screen"></div>
+		<div id="screen-intro" ng-include="'views/intro-screen.html'" class="screen"></div>
+		<div id="screen-what" ng-include="'views/what-screen.html'" class="screen"></div>
+		<div id="screen-comments" ng-include="'views/comments-screen.html'" class="screen"></div>
 		<script type="text/javascript" src="/vendor/lodash.min.js"></script>
 		<script type="text/javascript" src="/vendor/TweenMax.min.js"></script>
+		<script type="text/javascript" src="/vendor/raphael-min.js"></script>
+		<script type="text/javascript" src="/vendor/velocity.min.js"></script>
 	</body>
 </html>

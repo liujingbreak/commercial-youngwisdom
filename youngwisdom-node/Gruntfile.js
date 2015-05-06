@@ -6,7 +6,7 @@ module.exports = function (grunt) {
 		less:{
 			all:{
 				files: {
-					'<%=dest_dir%>/styles/youngwisdom.css': '<%=src_dir%>/styles/*.less'
+					'<%=dest_dir%>/styles/youngwisdom-temp.css': '<%=src_dir%>/styles/*.less'
 				}
 			}
 		},
@@ -16,7 +16,8 @@ module.exports = function (grunt) {
 			  browsers: ['last 3 versions', 'ie 8', 'ie 9']
 			},
 			all:{
-				src:['<%=dest_dir%>/styles/*.css']
+				src:['<%=dest_dir%>/styles/*.css'],
+				dest:'<%=dest_dir%>/styles/youngwisdom.css'
 			}
 		},
 		

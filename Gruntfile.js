@@ -1,8 +1,8 @@
 module.exports = function (grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		src_dir: '../webapp',
-		dest_dir: '../webapp/dist',
+		src_dir: 'webapp',
+		dest_dir: 'webapp/dist',
 		less:{
 			all:{
 				files: {

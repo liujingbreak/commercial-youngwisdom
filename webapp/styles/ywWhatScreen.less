@@ -16,9 +16,9 @@
 		position: relative;
 		h3{
 			display: inline-block;
+			font-weight: 700;
 		}
 		p, h3{
-			
 			text-align: left;
 			padding: 0 @unit-small;
 			font-size: @unit-small;
@@ -33,5 +33,14 @@
 	.glyphicon{
 		display: inline-block;
 		font-size: @unit-small;
+	}
+}
+@media all and (max-width: 700px){
+	#screen-what{
+		.column{
+			display: block;
+			width: 100%;
+			padding: 0 @unit-small;
+		}
 	}
 }

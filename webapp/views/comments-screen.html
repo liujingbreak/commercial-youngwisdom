@@ -1,12 +1,9 @@
-<div class="content">
+<div class="content" ng-controller="ywComments">
 	<h1>我们的客户都这样说</h1>
+	
 	<div class="comments-container">
-		<div>
-			<div class="bubble">
-				<div class="arrow"></div>
-				
-			</div>
-			<div class="comment"></div>
-		</div>
+		<div yw-bubble  ng-repeat="comment in comments" ng-class="{'odd': $odd, 'even': $even }">{{comment.text}}</div>
 	</div>
+	
+	<div>
 </div>

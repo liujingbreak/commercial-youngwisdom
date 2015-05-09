@@ -7,6 +7,16 @@
 	</div>
 	</p>
 </div>
+<form class="signup-form" name="signupForm">
+	<div class="field">
+		<i class="glyphicon glyphicon-envelope"></i>
+		<input ng-model="signupEmail" type="text" name="email" placeholder="邮箱" ng-pattern="emailFormat"/>
+		<div class="validation-msg yw-animation" ng-show="signupForm.email.$error.pattern" >请输入有效的邮箱地址</div>
+	</div><div class="field">
+		<i class="glyphicon glyphicon-lock"></i>
+		<input ng-model="signinPwd" type="password" name="password" placeholder="密码" ng-trim="true"/>
+	</div><button yw-button><span>注册</span></button>
+</form>
 <div class="linechart" yw-chart-anim>
 	<svg id="SvgjsSvg1000" xmlns="http://www.w3.org/2000/svg" version="1.1" width="1340" height="250" xmlns:xlink="http://www.w3.org/1999/xlink">
 		<polygon id="chart-polygon" points="-150,213 150,209 450,130 750,129 1050,65 1350,43 1650,15 1950,250 -150,250" fill="url(#SvgjsLinearGradient1006)" stroke="none">

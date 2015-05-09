@@ -1,18 +1,10 @@
-angular.module('ywLanding').directive('ywScrollable', ['$compile', '$timeout', '$interval', '$window',
-function($compile, $timeout,$interval, $window){
-return {
-	restrict: 'EAC',
-	
-	compile:function(el, attrs){
-		return function(scope, el, attrs){
+angular.module('ywLanding').directive('ywMain',
+['$timeout', '$interval', '$window', function($timeout,$interval){
+	return {
+		link:function(scope, el, attrs){
 			var header = el.find('.header');
-			
-			
 			$timeout(function(){
-				//var timeline = new TimelineLite({paused: true});
-				//timeline.to('#screen-signup .background', 1, {y: -100, opacitiy: 0, ease: Linear.easeNone});
-				
-				var scrollable = new ScrollableAnim($($window));
+				var scrollable = new ScrollableAnim($(window));
 				scrollable.scene({
 						offset: 15,
 						duration: 400,
@@ -24,7 +16,21 @@ return {
 							}
 						}
 				});
-				
+			}, 100, false);
+		}
+	};
+	
+	}])
+.directive('ywHome', ['$compile', '$timeout', '$interval', '$window',
+function($compile, $timeout,$interval, $window){
+return {
+	restrict: 'EAC',
+	
+	compile:function(el, attrs){
+		return function(scope, el, attrs){
+			
+			$timeout(function(){
+				var scrollable = new ScrollableAnim($($window));
 				
 				// --- chart animation ---
 				var chartPolygon = el.find('#chart-polygon');
@@ -79,28 +85,22 @@ return {
 				stepTimeline.staggerFromTo(icons, .7, {scaleX:0, scaleY: 0},
 					{scaleX: 1, scaleY: 1, ease: Elastic.easeOut}, 0.7,0);
 				
-				/* stepTimeline.to(animLine[0], 0.5, {width: '33%'});
-				stepTimeline.addLabel('t1');
-				//stepTimeline.to(dots[1], .2, {className: '+=lightened'});
-				//stepTimeline.to(steps[1], .2, {color: '#323232'}, 't1');
-				
-				
-				stepTimeline.to(animLine[0], 0.5, {width: '67%'});
-				stepTimeline.addLabel('t2');
-				//stepTimeline.to(dots[2], .2, {className: '+=lightened'});
-				//stepTimeline.to(steps[2], .2, {color: '#323232'}, 't2');
-				
-				stepTimeline.to(animLine[0], 0.5, {width: '100%'});
-				stepTimeline.addLabel('t3');
-				//stepTimeline.to(dots[3], .2, {className: '+=lightened'});
-				//stepTimeline.to(steps[3], .2, {color: '#323232'}, 't3'); */
-				
 				scrollable.scene({
 						triggerElement: '#screen-intro .steps',
 						delayPercent: 0,
 						startup: function(rev){
 							if(!rev){
 								stepTimeline.restart();
+							}
+						}
+				});
+				
+				scrollable.scene({
+						triggerElement: '#screen-comments',
+						startup: function(rev){
+							if(!rev){
+								scope.commentAnimStart = 'true';
+								scope.$apply();
 							}
 						}
 				});
@@ -114,9 +114,7 @@ return {
 	return {
 		restrict: 'EAC',
 		link: function(scope, el, attrs){
-			//var paper = Raphael(el[0], 0, 0, 1340, 250);
-			//paper.path('M-150,213 L 150,209 L 450,130 L 750,129 L1050,65 L1350,43 L1650,15 L1950,250 L-150,250 Z')
-			//	.attr({fill: '#f3be3f'});
+			
 			$timeout(function(){
 				var win = $(window);
 				var svg = el.find('svg');
@@ -125,6 +123,48 @@ return {
 				});
 				svg.attr('width', win.width());
 			}, 50, false);
+		}
+	};
+}])
+.directive('ywCommentAnim', ['$timeout', function($timeout){
+	return {
+		restrict: 'EAC',
+		link: function(scope, el, attrs){
+			el.addClass('yw-comment-anim');
+			var bubbles, showingIdx = 0;
+			
+			$timeout(function(){
+					bubbles = el.find('.yw-bubble');
+					bubbles.addClass('yw-anim-hide');
+			}, 100);
+			
+			attrs.$observe('ywCommentAnim', function(value){
+				if(value === 'yes' || value === 'true'){
+					animGroup();
+				}
+			});
+			
+			function anim(){
+				if(showingIdx != null){
+					var hideIdx = showingIdx - 2;
+					hideIdx = hideIdx < 0 ? bubbles.length + hideIdx : hideIdx;
+					TweenMax.to(bubbles[hideIdx], 0.5, {opacity: 0, yPercent: 100,
+						onComplete:function(){
+							var target = bubbles.eq(showingIdx);
+							target.removeClass('yw-anim-hide');
+							TweenMax.fromTo(target, 0.3, {opacity:0, yPercent: -100}, {opacity: 1, yPercent: 0});
+							showingIdx++;
+							showingIdx = showingIdx === bubbles.length ? 0 : showingIdx;
+					}});
+				}
+				
+			}
+			
+			function animGroup(){
+				anim();
+				$timeout(anim, 1000, false);
+				$timeout(animGroup, 5000, false);
+			}
 		}
 	};
 }]);

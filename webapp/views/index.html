@@ -12,29 +12,52 @@
 		<script type="text/javascript" src="/vendor/modernizr.custom.87166.js"></script>
 		<script type="text/javascript" src="/vendor/angularjs/angular.min.js"></script>
 		<script type="text/javascript" src="/vendor/angularjs/angular-route.min.js"></script>
+		<script type="text/javascript" src="/vendor/angularjs/angular-animate.min.js"></script>
 		<script type="text/javascript" src="/js/i18n/text-zh-CN.js"></script>
 		<script type="text/javascript" src="/dist/js/youngwisdom.js"></script>
 	</head>
-	<body ng-controller="main" yw-scrollable>
+	<body ng-controller="main" yw-main>
 		<div class="header">
-			<a class="logo" href="/">{{t.logoText}}</a>
+			<a class="logo" href="/#/">{{t.logoText}}</a>
 			<div class="nav">
-				<a class="yw-link" href="/">{{t.home_page}}</a>
+				<a class="yw-link" href="/#/">{{t.home_page}}</a>
 				<a class="yw-link" href="/#/feature" >{{t.feature}}</a>
-				<a class="yw-link" href="/#/signup" >{{t.signup}}</a>
+				<a yw-button href="/#/signup" >{{t.signup}}</a>
 				<a class="yw-link" href="/#/community" >{{t.community}}</a>
 				<a class="yw-link" href="/#/signin" >{{t.signin}}</a>
 				<a class="yw-link" href="/#/team" >{{t.team}}</a>
 			</div>
 		</div>
-		<!--{{random}}-->
-		<div id="screen-signup" ng-include="'views/sign-up-screen.html'" class="screen"></div>
-		<div id="screen-intro" ng-include="'views/intro-screen.html'" class="screen"></div>
-		<div id="screen-what" ng-include="'views/what-screen.html'" class="screen"></div>
-		<div id="screen-comments" ng-include="'views/comments-screen.html'" class="screen"></div>
+		<ng-view></ng-view>
+		<div id="screen-signup2" ng-include="'views/sign-up2-screen.html'" class="screen"></div>
+		<div id="screen-contact" class="screen">
+			<span class="left">
+				<h3>青智财务咨询有限公司</h3>
+			</span><span class="right">
+				<span class="col"><i class="glyphicon glyphicon-home"></i>
+					<div class="feature-info">
+							中国上海市徐汇区
+					</div>
+				</span><span class="col"><i
+					class="glyphicon glyphicon-phone"></i>
+					<div class="feature-info">
+							18201897828
+					</div>
+				</span><span class="col"><i
+					class="glyphicon glyphicon-envelope"></i>
+					<div class="feature-info">
+							info@youngwisdom.com.cn
+					</div>
+				</span>
+			</span>
+		</div>
+		<div id="footer">
+			沪ICP备15012848号 | COPYRIGHT © 2014-2015, YOUNGWISDOM, ALL RIGHTS RESERVED
+			<p class="contributor">
+			Powered by <a class="yw-link" href="https://github.com/liujingbreak/youngwisdom">L.J.</a>
+			</p>
+		</div>
 		<script type="text/javascript" src="/vendor/lodash.min.js"></script>
 		<script type="text/javascript" src="/vendor/TweenMax.min.js"></script>
-		<script type="text/javascript" src="/vendor/raphael-min.js"></script>
-		<script type="text/javascript" src="/vendor/velocity.min.js"></script>
 	</body>
 </html>

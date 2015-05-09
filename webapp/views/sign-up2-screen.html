@@ -1,0 +1,74 @@
+<div class="content">
+<div class="cta-signup-footer__icons">
+	<div class="cta-signup-footer__icon">
+		<i class="glyphicon glyphicon-user"></i>
+		<div class="desc">注册一个帐号</div>
+	</div>
+	<div class="cta-signup-footer__dots cta-signup-footer__dots--one animate">
+		<svg width="36" height="6" viewBox="0 0 36 6" version="1.1" xmlns="http://www.w3.org/2000/svg">
+			<g fill="#000">
+				<circle class="icon-dots icon-dots--one" cx="3" cy="3" r="3"></circle>
+				<circle class="icon-dots icon-dots--two" cx="18" cy="3" r="3"></circle>
+				<circle class="icon-dots icon-dots--three" cx="33" cy="3" r="3"></circle>
+			</g>
+		</svg>
+	</div>
+	<div class="cta-signup-footer__icon">
+		<svg data-src="https://benchco.global.ssl.fastly.net/assets/img/icons/iconic/chat.svg" style="width: 40px; height: 40px; margin-bottom: 11px" viewBox="0 0 128 128" class="iconic iconic-chat iconic-injected-svg iconic iconic-md iconic-two animate" height="128" width="128" data-icon="chat" xmlns="http://www.w3.org/2000/svg" version="1.1">
+		  <g class="iconic-metadata">
+			<title>Chat</title>
+		  </g>
+		  <defs>
+			<clipPath id="iconic-size-lg-chat-clip-0-32">
+			  <path d="M46 72h-46v-72h83v16h-37z"></path>
+			</clipPath>
+			<clipPath id="iconic-size-md-chat-clip-0-32">
+			  <path d="M11 18.9h-11v-18.9h22v6h-11z"></path>
+			</clipPath>
+			<clipPath id="iconic-size-sm-chat-clip-0-32">
+			  <path d="M5 11h-5v-11h11v3h-6z"></path>
+			</clipPath>
+		  </defs>
+		  <g transform="translate(0 19)" display="inline" class="iconic-container iconic-lg" data-height="90" data-width="128">
+			<path class="iconic-chat-bubble iconic-chat-bubble-front iconic-property-fill" d="M48 19.5v55c0 .8.7 1.5 1.5 1.5h65c.8 0 1.9.5 2.5 1.1l10 11.7c.5.6 1 .5 1-.4v-69c0-.8-.7-1.5-1.5-1.5h-77c-.8.1-1.5.8-1.5 1.6z"></path>
+			<path class="iconic-chat-bubble iconic-chat-bubble-back iconic-property-accent iconic-property-fill" clip-path="url(#iconic-size-lg-chat-clip-0-32)" d="M0 1.5v69c0 .8.4 1 1 .4l10-11.7c.5-.6 1.6-1.1 2.5-1.1h65c.8 0 1.5-.7 1.5-1.5v-55c0-.9-.7-1.6-1.5-1.6h-77c-.8 0-1.5.7-1.5 1.5z"></path>
+		  </g>
+		  <g transform="scale(4) translate(0 3)" display="none" class="iconic-container iconic-md" data-height="26" data-width="32">
+			<path class="iconic-chat-bubble iconic-chat-bubble-front iconic-property-fill" d="M12 7.5v14c0 .3.2.5.5.5h15c.3 0 .7.2.9.4l3.3 3.3c.2.2.4.1.4-.1v-18c-.1-.4-.3-.6-.6-.6h-19c-.3 0-.5.2-.5.5z"></path>
+			<path class="iconic-chat-bubble iconic-chat-bubble-back iconic-property-accent iconic-property-fill" clip-path="url(#iconic-size-md-chat-clip-0-32)" d="M0 .5v18c0 .3.2.3.4.1l3.3-3.3c.1-.1.5-.3.8-.3h15c.3 0 .5-.2.5-.5v-14c0-.3-.2-.5-.5-.5h-19c-.3 0-.5.2-.5.5z"></path>
+		  </g>
+		  <g transform="scale(8)" display="none" class="iconic-container iconic-sm" data-height="15" data-width="16">
+			<path d="M6 4v8h7l3 3v-11z" class="iconic-chat-bubble iconic-chat-bubble-front iconic-property-fill"></path>
+			<path d="M0 0v11l3-3h7v-8z" class="iconic-chat-bubble iconic-chat-bubble-back iconic-property-accent iconic-property-fill" clip-path="url(#iconic-size-sm-chat-clip-0-32)"></path>
+		  </g>
+		</svg>
+				<div class="desc">见一下你的会计师</div>
+		</div>
+		
+		<div class="cta-signup-footer__dots cta-signup-footer__dots--two animate">
+			<svg width="36" height="6" viewBox="0 0 36 6" version="1.1" xmlns="http://www.w3.org/2000/svg">
+				<g fill="#000">
+					<circle class="icon-dots icon-dots--one" cx="3" cy="3" r="3"></circle>
+					<circle class="icon-dots icon-dots--two" cx="18" cy="3" r="3"></circle>
+					<circle class="icon-dots icon-dots--three" cx="33" cy="3" r="3"></circle>
+				</g>
+				</svg>
+		</div>
+		
+		<div class="cta-signup-footer__icon">
+				<i class="glyphicon glyphicon-file"></i>
+				<div class="desc">一份免费的账目</div>
+		</div>
+	</div>
+	
+	<form class="footer-signup-form" name="signupForm2">
+		<div class="field">
+			<i class="glyphicon glyphicon-envelope"></i>
+			<input ng-model="signupEmail" type="text" name="email" placeholder="邮箱" ng-pattern="emailFormat"/>
+			<div class="validation-msg yw-animation" ng-show="signupForm2.email.$error.pattern" >请输入正确的邮箱地址</div>
+		</div><div class="field">
+			<i class="glyphicon glyphicon-lock"></i>
+			<input ng-model="signinPwd" type="text" name="password" placeholder="密码" ng-trim="true"/>
+		</div><button yw-button><span>注册</span></button>
+	</form>
+</div>

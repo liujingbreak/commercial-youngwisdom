@@ -1,0 +1,37 @@
+@import "variables.less";
+
+#feature-navi-screen{
+	font-size: @unit-small;
+	position: relative;
+	background-image: url(/images/feature_background.jpg);
+	background-position: bottom center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 700px;
+	.navi-section{
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		padding-bottom: @unit;
+	}
+	.navi-row{
+		text-align: center;
+		line-height: 200%;
+	}
+	.col{
+		display: inline-block;
+		width: 25%;
+		min-width: 200px;
+		text-align: left;
+		transition: all 0.25s ease-out;
+		&:hover{
+			transform: translate( 22px, 0);
+			cursor: pointer;
+		}
+	}
+	i{
+		margin-right: @unit;
+		color: @lj-blue;
+		font-size: @unit;
+	}
+}

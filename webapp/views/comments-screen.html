@@ -1,7 +1,7 @@
 <div class="content" ng-controller="ywComments">
 	<h1>我们的客户都这样说</h1>
 	
-	<div class="comments-container">
+	<div class="comments-container" yw-comment-anim="{{commentAnimStart}}">
 		<div yw-bubble  ng-repeat="comment in comments" ng-class="{'odd': $odd, 'even': $even }">{{comment.text}}</div>
 	</div>
 	

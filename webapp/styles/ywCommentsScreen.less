@@ -1,6 +1,9 @@
 @import "variables.less";
 
 #screen-comments{
+	max-height: 470px;
+	min-height: 410px;
+	
 	.content{
 		height: 100%;
 	}
@@ -11,5 +14,19 @@
 		max-width: 1000px;
 		height: 70%;
 		margin: 0 auto;
+	}
+}
+
+@media all and (min-width: 1000px){
+	.yw-bubble{
+		display: inline-block;
+		vertical-align: top;
+		
+		&.odd{
+			left: -70px;
+		}
+		&.even{
+			top: 40px;
+		}
 	}
 }

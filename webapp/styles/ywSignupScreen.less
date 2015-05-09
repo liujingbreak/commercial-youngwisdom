@@ -1,5 +1,7 @@
 @import "variables.less";
 
+@place-holder-color: rgb(77,76,77);
+@place-holder-focus-color: rgb(135,135, 135);
 #screen-signup{
 	position: relative;
 	color: white;
@@ -36,6 +38,87 @@
 		width: 0;
 		font-size: 0;
 		height: 100%;
+	}
+	.signup-form{
+		margin: @unit*3 0 @unit*2 0;
+		.field{
+			vertical-align: top;
+			margin: 0 @unit;
+			display: inline-block;
+			text-align: left;
+			transition: all .25s ease-out;
+			background: rgba(210, 210, 210, 0.9);
+			border-radius: 2px;
+			line-height: 54px;
+			
+		}
+		button{
+			display: inline-block;
+			width: 171px;
+			border-radius: 4px;
+			
+			&:hover{
+				background-color: rgb(200,85,53);
+				border-color: rgb(146,73,53);
+			}
+		}
+		i{
+			margin: 0;
+			padding-left: 1em;
+			font-size: @unit-small;
+			color: @bench-hl;
+		}
+	}
+	input{
+		font-size: @unit-small;
+		outline: 0;
+		border: 0;
+		background: transparent;
+		width: 30%;
+		min-width: 200px;
+		color: #000;
+		
+		&::-webkit-input-placeholder {
+		   color: @place-holder-color;
+		}
+		
+		&:-moz-placeholder { /* Firefox 18- */
+		   color: @place-holder-color;
+		}
+		
+		&::-moz-placeholder {  /* Firefox 19+ */
+		   color: @place-holder-color;
+		}
+		
+		&:-ms-input-placeholder {  
+		   color: @place-holder-color;
+		}
+		
+		&:focus{
+			&::-webkit-input-placeholder {
+			   color: @place-holder-focus-color;
+			}
+			
+			&:-moz-placeholder { /* Firefox 18- */
+			   color: @place-holder-focus-color;  
+			}
+			
+			&::-moz-placeholder {  /* Firefox 19+ */
+			   color: @place-holder-focus-color;  
+			}
+			
+			&:-ms-input-placeholder {  
+			   color: @place-holder-focus-color;
+			}
+		}
+		
+	}
+	.validation-msg{
+		line-height: normal;
+		font-size: 15px;
+		font-weight: bold;
+		text-align: center;
+		color: @bench-hl;
 	}
 }
 

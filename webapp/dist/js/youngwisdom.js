@@ -18,9 +18,11 @@ angular.module('ywLanding')
 .controller('PageController', ['$scope','t', function($scope, msg){
 			
 }])
-.controller('featureController', ['$scope','t', function($scope, msg){
+.controller('featureController', ['$scope','t','$route', '$routeParams', '$location', function($scope, msg,
+		$route, $routeParams, $location){
 	$scope.jump = function(anchor){
 		$scope.anchorIdx = anchor;
+		$location.path('/feature/'+ anchor);
 	};
 }])
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -28,6 +30,9 @@ angular.module('ywLanding')
 		templateUrl: '/views/home.html',
 		controller: 'PageController'
 	}).when('/feature', {
+		templateUrl: '/views/feature.html',
+		controller: 'featureController'
+	}).when('/feature/:anchor', {
 		templateUrl: '/views/feature.html',
 		controller: 'featureController'
 	}).when('/signup', {

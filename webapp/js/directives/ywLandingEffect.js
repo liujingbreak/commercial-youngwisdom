@@ -22,7 +22,7 @@ angular.module('ywLanding')
 							}
 						}
 				});
-			}, 100, false);
+			}, 500, false);
 		}
 	};
 	
@@ -120,7 +120,7 @@ return {
 							}
 						}
 				});
-			}, 200, false);
+			}, 500, false);
 		}
 	}
 };
@@ -137,7 +137,7 @@ return {
 					svg.attr('width', win.width());
 				});
 				svg.attr('width', win.width());
-			}, 50, false);
+			}, 500, false);
 		}
 	};
 }])
@@ -151,7 +151,7 @@ return {
 			$timeout(function(){
 					bubbles = el.find('.yw-bubble');
 					bubbles.addClass('yw-anim-hide');
-			}, 100);
+			}, 500);
 			
 			attrs.$observe('ywCommentAnim', function(value){
 				if(value === 'yes' || value === 'true'){
@@ -208,7 +208,7 @@ return {
 							signupIconsTl.restart();
 					}
 			});
-		}, 100, false);
+		}, 500, false);
 	}
 };
 }]);

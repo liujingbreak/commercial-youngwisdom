@@ -123,7 +123,6 @@ return {
 			}, 200, false);
 		}
 	}
-	
 };
 }])
 .directive('ywChartAnim', ['$timeout', function($timeout){
@@ -183,4 +182,24 @@ return {
 			}
 		}
 	};
+}])
+.directive('ywFeature', ['$compile', '$timeout', '$interval', '$window',
+function($compile, $timeout,$interval, $window){
+return {
+	restrict: 'EAC',
+	link: function(scope, el, attrs){
+		$timeout(function(){
+			var scrollable = new ScrollableAnim($(window));
+			var signupIconsTl = new TimelineLite({paused: true});
+			signupIconsTl.staggerFromTo($('#screen-signup2 .yw-icon'), 1, {scaleX:0, scaleY:0}, {scaleX: 1, scaleY: 1, ease: Elastic.easeOut, repeat:-1, delay: 0.5, repeatDelay: 5}, 0.3);
+			scrollable.scene({
+					triggerElement: '#screen-signup2',
+					startup: function(rev){
+						if(!rev)
+							signupIconsTl.restart();
+					}
+			});
+		}, 100, false);
+	}
+};
 }]);

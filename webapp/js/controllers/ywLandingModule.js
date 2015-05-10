@@ -21,5 +21,8 @@ angular.module('ywLanding')
 	}).when('/feature', {
 		templateUrl: '/views/feature.html',
 		controller: 'PageController'
+	}).when('/signup', {
+		templateUrl: '/views/signup-page.html',
+		controller: 'PageController'
 	});
 }]);

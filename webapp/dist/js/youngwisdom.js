@@ -182,7 +182,7 @@ return {
 							}
 						}
 				});
-			}, 500, false);
+			}, 1000, false);
 		}
 	}
 };
@@ -199,7 +199,7 @@ return {
 					svg.attr('width', win.width());
 				});
 				svg.attr('width', win.width());
-			}, 500, false);
+			}, 1000, false);
 		}
 	};
 }])
@@ -213,7 +213,7 @@ return {
 			$timeout(function(){
 					bubbles = el.find('.yw-bubble');
 					bubbles.addClass('yw-anim-hide');
-			}, 500);
+			}, 1000);
 			
 			attrs.$observe('ywCommentAnim', function(value){
 				if(value === 'yes' || value === 'true'){
@@ -270,7 +270,7 @@ return {
 							signupIconsTl.restart();
 					}
 			});
-		}, 500, false);
+		}, 1000, false);
 	}
 };
 }]);

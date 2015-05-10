@@ -1,130 +1,3 @@
-.signup-page {
-  background-image: url('/images/wood.jpg');
-  background-color: #634F40;
-  background-size: cover;
-  min-height: 100%;
-}
-
-
-.yw-link {
-  line-height: normal;
-  font-weight: bold;
-}
-.yw-link .underscore {
-  position: relative;
-  width: 100%;
-  display: 'block';
-  height: 2px;
-  background-color: #FFF;
-  top: 10px;
-  opacity: 0;
-  transition: all .2s ease;
-}
-.yw-link:hover .underscore {
-  top: 2px;
-  opacity: 0.3;
-}
-.header-fixed .yw-link .underscore {
-  background-color: #535353;
-}
-.yw-bubble {
-  position: relative;
-  width: 500px;
-  margin: 22px auto;
-}
-.yw-bubble-box {
-  min-height: 90px;
-  border-radius: 4px 4px 4px 4px;
-  margin: 0 22px;
-  border: 2px solid #419088;
-  position: relative;
-  padding: 32px;
-}
-.yw-bubble-box .arrow {
-  box-sizing: content-box;
-  position: absolute;
-  left: 44px;
-  bottom: 0;
-  margin-bottom: -25px;
-  height: 0;
-  width: 0;
-  border-top: 25px solid #419088;
-  border-left: 25px solid transparent;
-  border-bottom: 0;
-  border-right: 0;
-}
-.yw-bubble-box .arrow:before {
-  display: block;
-  content: "";
-  height: 0;
-  width: 0;
-  border-top: 22px solid white;
-  border-left: 21px solid transparent;
-  border-bottom: 0;
-  border-right: 0;
-  position: absolute;
-  top: -27px;
-  left: -23px;
-}
-.yw-bubble-box .bubble-content {
-  font-size: 16px;
-}
-button,
-.yw-button {
-  font-size: 16px;
-  width: auto;
-  background-color: #FD7A50;
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.075) 0%, rgba(0, 0, 0, 0.075) 100%);
-  transition: all 0.2s ease 0s;
-  border-width: medium medium 2px;
-  border-style: none none solid;
-  border-color: -moz-use-text-color -moz-use-text-color #af5b42;
-  border-color: #AF5B42;
-  -moz-border-top-colors: none;
-  -moz-border-right-colors: none;
-  -moz-border-bottom-colors: none;
-  -moz-border-left-colors: none;
-  border-image: none;
-  border-radius: 2px;
-  display: inline-block;
-  font-size: 1em;
-  color: #FFF;
-  font-family: "LLCircularWeb", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 600;
-  line-height: 1;
-  outline: medium none;
-  padding: 15px 22px;
-}
-button:hover,
-.yw-button:hover {
-  background-color: #505050;
-  border-color: #303030;
-}
-button span,
-.yw-button span {
-  font-size: 16px;
-}
-button.down,
-.yw-button.down {
-  box-shadow: inset 0 0 5px 3px rgba(0, 0, 0, 0.3);
-}
-.field {
-  position: relative;
-}
-.field .glyphicon-eye-open,
-.field .glyphicon-eye-close {
-  padding-right: 16px;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  -ms-user-select: none;
-      user-select: none;
-}
-.field .pwd-vis-hints {
-  font-size: 12px;
-}
-
 #screen-comments {
   max-height: 470px;
   min-height: 410px;
@@ -321,19 +194,6 @@ button.down,
   .feature-page .col33 {
     width: 100%;
   }
-}
-
-.icon-blue {
-  color: #419088;
-}
-.icon-brown {
-  color: #D2A764;
-}
-.icon-green {
-  color: #C1ECCC;
-}
-.icon-red {
-  color: #EF6D44;
 }
 
 #screen-intro {
@@ -603,104 +463,11 @@ p {
   display: none;
 }
 
-#screen-signup2 {
-  background-color: #419088 !important;
-  background-image: url("/images/green-laptop.jpg");
-  background-repeat: repeat;
-  background-position: top center;
+.signup-page {
+  background-image: url('/images/wood.jpg');
+  background-color: #634F40;
   background-size: cover;
-  height: auto;
-  padding: 70px 0;
-}
-#screen-signup2 .content {
-  text-align: center;
-}
-#screen-signup2 svg .icon-dots {
-  opacity: 0.2;
-  fill: #fff;
-}
-#screen-signup2 svg.iconic {
-  width: 32px;
-  height: 32px;
-  fill: #fff!important;
-}
-#screen-signup2 svg.iconic-person {
-  margin-bottom: 20px;
-}
-#screen-signup2 .cta-signup-footer__icons > div {
-  display: inline-block;
-  vertical-align: top;
-  text-align: center;
-}
-#screen-signup2 .glyphicon {
-  font-size: 32px;
-  color: white;
-  margin-bottom: 27px;
-}
-#screen-signup2 .desc {
-  color: white;
-  font-weight: 600;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-#screen-signup2 .footer-signup-form {
-  color: white;
-  margin: 66px 0 44px 0;
-}
-#screen-signup2 .footer-signup-form .field {
-  vertical-align: top;
-  margin: 0 22px;
-  display: inline-block;
-  text-align: left;
-  padding: 14px 0 3px 0;
-  border-bottom: 1px solid white;
-  transition: all 0.25s ease-out;
-  height: 52px;
-}
-#screen-signup2 .footer-signup-form button {
-  display: inline-block;
-  width: 171px;
-}
-#screen-signup2 .footer-signup-form i {
-  margin: 0;
-  font-size: 16px;
-}
-#screen-signup2 input {
-  font-size: 16px;
-  outline: 0;
-  border: 0;
-  background: transparent;
-  width: 30%;
-  min-width: 200px;
-}
-#screen-signup2 input::-webkit-input-placeholder {
-  color: #95bfbc;
-}
-#screen-signup2 input:-moz-placeholder {
-  /* Firefox 18- */
-  color: #95bfbc;
-}
-#screen-signup2 input::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #95bfbc;
-}
-#screen-signup2 input:-ms-input-placeholder {
-  color: #95bfbc;
-}
-#screen-signup2 .validation-msg {
-  padding-top: 22px;
-  font-size: 15px;
-  font-weight: bold;
-  text-align: center;
-}
-@media all and (max-width: 700px) {
-  #screen-signup2 .footer-signup-form {
-    color: white;
-    margin: 66px 0 44px 0;
-  }
-  #screen-signup2 .footer-signup-form .field {
-    display: block;
-    width: 100%;
-  }
+  min-height: 100%;
 }
 
 #screen-signup {
@@ -826,6 +593,107 @@ p {
   }
 }
 
+#screen-signup2 {
+  background-color: #419088 !important;
+  background-image: url("/images/green-laptop.jpg");
+  background-repeat: repeat;
+  background-position: top center;
+  background-size: cover;
+  height: auto;
+  padding: 70px 0;
+}
+#screen-signup2 .content {
+  text-align: center;
+}
+#screen-signup2 svg .icon-dots {
+  opacity: 0.2;
+  fill: #fff;
+}
+#screen-signup2 svg.iconic {
+  width: 32px;
+  height: 32px;
+  fill: #fff!important;
+}
+#screen-signup2 svg.iconic-person {
+  margin-bottom: 20px;
+}
+#screen-signup2 .cta-signup-footer__icons > div {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+#screen-signup2 .glyphicon {
+  font-size: 32px;
+  color: white;
+  margin-bottom: 27px;
+}
+#screen-signup2 .desc {
+  color: white;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+#screen-signup2 .footer-signup-form {
+  color: white;
+  margin: 66px 0 44px 0;
+}
+#screen-signup2 .footer-signup-form .field {
+  vertical-align: top;
+  margin: 0 22px;
+  display: inline-block;
+  text-align: left;
+  padding: 14px 0 3px 0;
+  border-bottom: 1px solid white;
+  transition: all 0.25s ease-out;
+  height: 52px;
+}
+#screen-signup2 .footer-signup-form button {
+  display: inline-block;
+  width: 171px;
+}
+#screen-signup2 .footer-signup-form i {
+  margin: 0;
+  font-size: 16px;
+}
+#screen-signup2 input {
+  font-size: 16px;
+  outline: 0;
+  border: 0;
+  background: transparent;
+  width: 30%;
+  min-width: 200px;
+}
+#screen-signup2 input::-webkit-input-placeholder {
+  color: #95bfbc;
+}
+#screen-signup2 input:-moz-placeholder {
+  /* Firefox 18- */
+  color: #95bfbc;
+}
+#screen-signup2 input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #95bfbc;
+}
+#screen-signup2 input:-ms-input-placeholder {
+  color: #95bfbc;
+}
+#screen-signup2 .validation-msg {
+  padding-top: 22px;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+@media all and (max-width: 700px) {
+  #screen-signup2 .footer-signup-form {
+    color: white;
+    margin: 66px 0 44px 0;
+  }
+  #screen-signup2 .footer-signup-form .field {
+    display: block;
+    width: 100%;
+  }
+}
+
+
 #screen-what {
   background: url(/images/desk_background_small.jpg) no-repeat scroll center top / 3760px 1088px;
   min-height: 970px;
@@ -868,4 +736,136 @@ p {
     width: 100%;
     padding: 0 16px;
   }
+}
+
+.yw-link {
+  line-height: normal;
+  font-weight: bold;
+}
+.yw-link .underscore {
+  position: relative;
+  width: 100%;
+  display: 'block';
+  height: 2px;
+  background-color: #FFF;
+  top: 10px;
+  opacity: 0;
+  transition: all .2s ease;
+}
+.yw-link:hover .underscore {
+  top: 2px;
+  opacity: 0.3;
+}
+.header-fixed .yw-link .underscore {
+  background-color: #535353;
+}
+.yw-bubble {
+  position: relative;
+  width: 500px;
+  margin: 22px auto;
+}
+.yw-bubble-box {
+  min-height: 90px;
+  border-radius: 4px 4px 4px 4px;
+  margin: 0 22px;
+  border: 2px solid #419088;
+  position: relative;
+  padding: 32px;
+}
+.yw-bubble-box .arrow {
+  box-sizing: content-box;
+  position: absolute;
+  left: 44px;
+  bottom: 0;
+  margin-bottom: -25px;
+  height: 0;
+  width: 0;
+  border-top: 25px solid #419088;
+  border-left: 25px solid transparent;
+  border-bottom: 0;
+  border-right: 0;
+}
+.yw-bubble-box .arrow:before {
+  display: block;
+  content: "";
+  height: 0;
+  width: 0;
+  border-top: 22px solid white;
+  border-left: 21px solid transparent;
+  border-bottom: 0;
+  border-right: 0;
+  position: absolute;
+  top: -27px;
+  left: -23px;
+}
+.yw-bubble-box .bubble-content {
+  font-size: 16px;
+}
+button,
+.yw-button {
+  font-size: 16px;
+  width: auto;
+  background-color: #FD7A50;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.075) 0%, rgba(0, 0, 0, 0.075) 100%);
+  transition: all 0.2s ease 0s;
+  border-width: medium medium 2px;
+  border-style: none none solid;
+  border-color: -moz-use-text-color -moz-use-text-color #af5b42;
+  border-color: #AF5B42;
+  -moz-border-top-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  border-image: none;
+  border-radius: 2px;
+  display: inline-block;
+  font-size: 1em;
+  color: #FFF;
+  font-family: "LLCircularWeb", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  outline: medium none;
+  padding: 15px 22px;
+}
+button:hover,
+.yw-button:hover {
+  background-color: #505050;
+  border-color: #303030;
+}
+button span,
+.yw-button span {
+  font-size: 16px;
+}
+button.down,
+.yw-button.down {
+  box-shadow: inset 0 0 5px 3px rgba(0, 0, 0, 0.3);
+}
+.field {
+  position: relative;
+}
+.field .glyphicon-eye-open,
+.field .glyphicon-eye-close {
+  padding-right: 16px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
+      user-select: none;
+}
+.field .pwd-vis-hints {
+  font-size: 12px;
+}
+
+.icon-blue {
+  color: #419088;
+}
+.icon-brown {
+  color: #D2A764;
+}
+.icon-green {
+  color: #C1ECCC;
+}
+.icon-red {
+  color: #EF6D44;
 }

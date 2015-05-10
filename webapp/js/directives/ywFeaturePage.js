@@ -14,4 +14,5 @@ angular.module('ywLanding')
 			el.find('.glyphicon').first().addClass(attrs.iconClass);
 		}
 	};
-	}]);
+	}])
+;

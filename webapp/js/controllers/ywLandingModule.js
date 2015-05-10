@@ -14,13 +14,18 @@ angular.module('ywLanding')
 .controller('PageController', ['$scope','t', function($scope, msg){
 			
 }])
+.controller('featureController', ['$scope','t', function($scope, msg){
+	$scope.jump = function(anchor){
+		$scope.anchorIdx = anchor;
+	};
+}])
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 	$routeProvider.when('/', {
 		templateUrl: '/views/home.html',
 		controller: 'PageController'
 	}).when('/feature', {
 		templateUrl: '/views/feature.html',
-		controller: 'PageController'
+		controller: 'featureController'
 	}).when('/signup', {
 		templateUrl: '/views/signup-page.html',
 		controller: 'PageController'

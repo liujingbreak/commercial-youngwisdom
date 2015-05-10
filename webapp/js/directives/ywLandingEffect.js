@@ -188,6 +188,15 @@ function($compile, $timeout,$interval, $window){
 return {
 	restrict: 'EAC',
 	link: function(scope, el, attrs){
+		scope.$watch('anchorIdx', function(val, old){
+				if(val != null){
+					var offset = el.find('.section-wrap').eq(parseInt(val, 10)).offset().top;
+					console.log($('.header').outerHeight());
+					TweenMax.to(document.body, 0.5, {scrollTop: offset - $('.header').outerHeight() - 35});
+				}
+			});
+		
+		
 		$timeout(function(){
 			var scrollable = new ScrollableAnim($(window));
 			var signupIconsTl = new TimelineLite({paused: true});

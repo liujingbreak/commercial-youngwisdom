@@ -1,3 +1,4 @@
 **/node_modules
 .DS_Store
 webapp/dist/styles/youngwisdom-temp.css
+**/#*

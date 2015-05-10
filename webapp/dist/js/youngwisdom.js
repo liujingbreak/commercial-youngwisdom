@@ -18,13 +18,18 @@ angular.module('ywLanding')
 .controller('PageController', ['$scope','t', function($scope, msg){
 			
 }])
+.controller('featureController', ['$scope','t', function($scope, msg){
+	$scope.jump = function(anchor){
+		$scope.anchorIdx = anchor;
+	};
+}])
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 	$routeProvider.when('/', {
 		templateUrl: '/views/home.html',
 		controller: 'PageController'
 	}).when('/feature', {
 		templateUrl: '/views/feature.html',
-		controller: 'PageController'
+		controller: 'featureController'
 	}).when('/signup', {
 		templateUrl: '/views/signup-page.html',
 		controller: 'PageController'
@@ -47,7 +52,8 @@ angular.module('ywLanding')
 			el.find('.glyphicon').first().addClass(attrs.iconClass);
 		}
 	};
-	}]);
+	}])
+;
 
 angular.module('ywLanding')
 .directive('ywMain',['$timeout', '$interval', '$window', function($timeout,$interval){
@@ -239,6 +245,15 @@ function($compile, $timeout,$interval, $window){
 return {
 	restrict: 'EAC',
 	link: function(scope, el, attrs){
+		scope.$watch('anchorIdx', function(val, old){
+				if(val != null){
+					var offset = el.find('.section-wrap').eq(parseInt(val, 10)).offset().top;
+					console.log($('.header').outerHeight());
+					TweenMax.to(document.body, 0.5, {scrollTop: offset - $('.header').outerHeight() - 35});
+				}
+			});
+		
+		
 		$timeout(function(){
 			var scrollable = new ScrollableAnim($(window));
 			var signupIconsTl = new TimelineLite({paused: true});

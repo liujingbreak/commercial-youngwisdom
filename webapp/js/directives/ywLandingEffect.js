@@ -5,7 +5,7 @@ angular.module('ywLanding')
 			scope.$on('$viewContentLoaded', function(){
 				$timeout(function(){
 					$(window).scrollTop(0);
-				}, 50, false);
+				}, 0, false);
 			});
 			
 			var header = el.find('.header');
@@ -22,7 +22,9 @@ angular.module('ywLanding')
 							}
 						}
 				});
-			}, 500, false);
+			}, 0, false);
+			
+			console.log('ywMain '+ new Date().getTime());
 		}
 	};
 	
@@ -34,7 +36,7 @@ return {
 	
 	compile:function(el, attrs){
 		return function(scope, el, attrs){
-			
+			console.log('ywHome '+ new Date().getTime());
 			$timeout(function(){
 				var scrollable = new ScrollableAnim($($window));
 				
@@ -129,7 +131,7 @@ return {
 	return {
 		restrict: 'EAC',
 		link: function(scope, el, attrs){
-			
+			console.log('ywChartAnim '+ new Date().getTime());
 			$timeout(function(){
 				var win = $(window);
 				var svg = el.find('svg');
@@ -137,7 +139,7 @@ return {
 					svg.attr('width', win.width());
 				});
 				svg.attr('width', win.width());
-			}, 1000, false);
+			}, 0, false);
 		}
 	};
 }])
@@ -145,13 +147,14 @@ return {
 	return {
 		restrict: 'EAC',
 		link: function(scope, el, attrs){
+			console.log('ywCommentAnim '+ new Date().getTime());
 			el.addClass('yw-comment-anim');
 			var bubbles, showingIdx = 0;
 			
 			$timeout(function(){
 					bubbles = el.find('.yw-bubble');
 					bubbles.addClass('yw-anim-hide');
-			}, 1000);
+			}, 0);
 			
 			attrs.$observe('ywCommentAnim', function(value){
 				if(value === 'yes' || value === 'true'){
@@ -188,13 +191,14 @@ function($compile, $timeout,$interval, $window){
 return {
 	restrict: 'EAC',
 	link: function(scope, el, attrs){
+		console.log('ywFeature '+ new Date().getTime());
 		scope.$watch('anchorIdx', function(val, old){
 				if(val != null){
 					var offset = el.find('.section-wrap').eq(parseInt(val, 10)).offset().top;
-					console.log($('.header').outerHeight());
-					TweenMax.to(document.body, 0.5, {scrollTop: offset - $('.header').outerHeight() - 35});
+				TweenMax.to(window, 0.5, {scrollTo:{y: offset - $('.header').outerHeight() - 35}, ease:Power2.easeOut});
 				}
 			});
+		
 		
 		
 		$timeout(function(){
@@ -208,7 +212,7 @@ return {
 							signupIconsTl.restart();
 					}
 			});
-		}, 1000, false);
+		}, 0, false);
 	}
 };
 }]);

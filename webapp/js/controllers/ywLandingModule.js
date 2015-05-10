@@ -18,7 +18,7 @@ angular.module('ywLanding')
 		$route, $routeParams, $location){
 	$scope.jump = function(anchor){
 		$scope.anchorIdx = anchor;
-		$location.path('/feature/'+ anchor);
+		//$location.path('/feature/'+ anchor);
 	};
 }])
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {

@@ -43,6 +43,35 @@ angular.module('ywWidgets')
 		}
 	};
 }])
+.directive('ywPassword', ['$compile', function($compile){
+	return {
+		link:function(scope, el, attrs){
+			var needText = attrs.ywPassword === 'text';
+			
+			var toggle = $('<i class="glyphicon glyphicon-eye-open"></i>');
+			el.after(toggle);
+			if(needText){
+				var hints = $('<span class="pwd-vis-hints">显示</span>');
+				toggle.after(hints);
+			}
+			
+			toggle.on('click', function(){
+				if(el.attr('type') === 'password'){
+					el.attr('type', 'text');
+					toggle.removeClass('glyphicon-eye-open');
+					toggle.addClass('glyphicon-eye-close');
+					hints.html('隐藏');
+				}
+				else{
+					el.attr('type', 'password');
+					toggle.removeClass('glyphicon-eye-close');
+					toggle.addClass('glyphicon-eye-open');
+					hints.html('显示');
+				}
+			});
+		}
+	};
+}])
 .animation('.yw-animation', function(){
 	return{
 		addClass: function(element, className, done) { 
@@ -58,6 +87,17 @@ angular.module('ywWidgets')
 				//TweenMax.from(element, 0.3, {height: 0, onComplete: done});
 			}else
 				done();
+		},
+		leave: function(element, done) {
+			done();
+			TweenMax.to(element, 0.3, {opacity: 0, onComplete: function(){
+				
+			}});
+		},
+		enter: function(element, done) {
+			TweenMax.fromTo(element, 0.7, {opacity: 0}, {opacity: 1, onComplete: function(){
+				done();
+			}});
 		}
 	};
 });

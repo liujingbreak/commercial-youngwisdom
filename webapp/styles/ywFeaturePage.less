@@ -1,0 +1,146 @@
+@import "variables.less";
+
+@payment-step-color: rgb(230,230,230);
+@odd-bg-color: rgb(250, 251, 251);
+
+.feature-page{
+	.navi-row{
+		padding: 0 @unit*2;
+	}
+	*{
+		box-sizing: border-box;
+	}
+	line-height: 170%;
+	.section-icon{
+		font-size: 35px;
+		width: 70px;
+		height: 70px;
+		background: @bench-hl;
+		border-radius: 50px;
+		color: white;
+		line-height: 70px;
+		text-align: center;
+	}
+	.section{
+		max-width: 64em;
+		width: 100%;
+		text-align: center;
+		
+		margin: -63px auto 0 auto;
+		text-align: left;
+		
+	}
+	.feature-info{
+		margin: 0 30px 0 32px;
+		//display: inline-block;
+		white-space: normal;
+	}
+	.col{
+		display: inline-block;
+		vertical-align: top;
+		.glyphicon{
+			color: @lj-blue;
+			font-size: @unit;
+			margin-right: 10px;
+		}
+		>*{
+			vertical-align: top;
+		}
+	}
+	.col33{
+		width: 32%;
+	}
+	.col50{
+		width: 50%;
+	}
+	.brief{
+		display: inline-block;
+		width: 50%;
+		margin: 0 0 3em 0;
+	}
+	h2{
+		margin: @unit 0;
+		color: @text-black;
+	}
+	h3{
+		font-size: @unit-small;
+		font-weight: bolder;
+		color: @text-black;
+		line-height: @unit*2;
+		display: inline-block;
+	}
+	.section-wrap{
+		padding: @unit 0 @unit*5 @unit;
+	}
+	.section-odd{
+		background: rgb(250, 251, 251);
+	}
+	
+	.payment-steps{
+		position: relative;
+		width: 380px;
+		.line{
+			position: absolute;
+			height: 2px;
+			background: @payment-step-color;
+			z-index: 1;
+			top: 20px;
+			left: 5px;
+			right: 5px;
+		}
+		.circle{
+			position: relative;
+			background-color: @odd-bg-color;
+			display: inline-block;
+			vertical-align: middle;
+			text-align: center;
+			line-height: 35px;
+			font-weight: bold;
+			width: 40px;
+			height: 40px;
+			border: 2px solid @payment-step-color;
+			border-radius: 100px;
+			margin-left: 129px;
+			z-index: 2;
+			
+			&:first-child{
+				margin-left: 0;
+			}
+		}
+		i.glyphicon{
+			font-size: @unit-small;
+			line-height: 35px;
+			text-align: center;
+			margin:0;
+		}
+	}
+	.payment-col{
+		display: inline-block;
+		vertical-align: top;
+		text-align: left;
+		width: 160px;
+		margin: @unit 0 0 10px;
+		font-size: 14px;
+		
+		&:first-child{
+			margin: @unit 0 0 0;
+		}
+		
+		h5{
+			font-weight: bold;
+		}
+		
+	}
+	.upload-method{
+		
+		display: inline-block;
+	}
+}
+
+@media all and (max-width: 700px){
+	.feature-page{
+		.col50, .col33{
+			width: 100%;
+		}
+	}
+}

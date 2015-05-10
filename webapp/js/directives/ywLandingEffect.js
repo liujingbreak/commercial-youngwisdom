@@ -1,7 +1,13 @@
-angular.module('ywLanding').directive('ywMain',
-['$timeout', '$interval', '$window', function($timeout,$interval){
+angular.module('ywLanding')
+.directive('ywMain',['$timeout', '$interval', '$window', function($timeout,$interval){
 	return {
 		link:function(scope, el, attrs){
+			scope.$on('$viewContentLoaded', function(){
+				$timeout(function(){
+					$(window).scrollTop(0);
+				}, 50, false);
+			});
+			
 			var header = el.find('.header');
 			$timeout(function(){
 				var scrollable = new ScrollableAnim($(window));
@@ -92,6 +98,16 @@ return {
 							if(!rev){
 								stepTimeline.restart();
 							}
+						}
+				});
+				
+				var signupIconsTl = new TimelineLite({paused: true});
+				signupIconsTl.staggerFromTo($('#screen-signup2 .yw-icon'), 1, {scaleX:0, scaleY:0}, {scaleX: 1, scaleY: 1, ease: Elastic.easeOut, repeat:-1, delay: 0.5, repeatDelay: 5}, 0.3);
+				scrollable.scene({
+						triggerElement: '#screen-signup2',
+						startup: function(rev){
+							if(!rev)
+								signupIconsTl.restart();
 						}
 				});
 				

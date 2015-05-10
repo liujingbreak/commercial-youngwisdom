@@ -309,6 +309,14 @@ input[type="password"] {
   padding: 0;
   margin: 0;
 }
+input[type="text"]:-moz-ui-invalid,
+input[type="password"]:-moz-ui-invalid {
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
 a {
   text-decoration: none;
 }
@@ -464,10 +472,123 @@ p {
 }
 
 .signup-page {
-  background-image: url('/images/wood.jpg');
+  boxing-sizing: border-box;
+  color: white;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%), url('/images/wood.jpg');
   background-color: #634F40;
-  background-size: cover;
+  background-size: cover, cover;
   min-height: 100%;
+}
+.signup-page .background-people {
+  min-height: 700px;
+  background-image: url('/images/emily.png');
+  background-size: 1176px 562px;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+}
+.signup-page h3 {
+  line-height: 3em;
+  font-weight: bolder;
+}
+.signup-page .form {
+  width: 40%;
+  max-width: 320px;
+  margin-left: 10%;
+  margin-right: 40%;
+  padding-top: 150px;
+}
+.signup-page .field {
+  border-bottom: 1px solid white;
+  transition: all 0.25s ease-out;
+  height: 3em;
+  line-height: 3em;
+}
+.signup-page .field i {
+  padding-right: 1em;
+}
+.signup-page .field > * {
+  vertical-align: middle;
+}
+.signup-page .field .glyphicon {
+  color: #fd7a50;
+}
+.signup-page button {
+  margin-top: 2em;
+  width: 42%;
+  margin-right: 16px;
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 4px;
+}
+.signup-page .btn-question {
+  padding-right: 0;
+  background: transparent;
+  border: 2px solid #fd7a50;
+  margin-right: 0;
+}
+.signup-page .btn-question:hover {
+  background-color: rgba(244, 122, 84, 0.1);
+  border-color: #303030;
+  border: 2px solid #fd7a50;
+}
+.signup-page .btn-question > span {
+  display: inline-block;
+  vertical-align: middle;
+}
+.signup-page .question-char {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  font-size: 11px;
+  line-height: 16px;
+  border-radius: 100px;
+  background: #fd7a50;
+}
+.signup-page input {
+  font-size: 16px;
+  outline: 0;
+  border: 0;
+  background: transparent;
+  width: 30%;
+  min-width: 200px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: normal;
+}
+.signup-page input::-webkit-input-placeholder {
+  color: #b9b9b9;
+}
+.signup-page input:-moz-placeholder {
+  /* Firefox 18- */
+  color: #b9b9b9;
+}
+.signup-page input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #b9b9b9;
+}
+.signup-page input:-ms-input-placeholder {
+  color: #b9b9b9;
+}
+.signup-page input:focus::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+.signup-page input:focus:-moz-placeholder {
+  /* Firefox 18- */
+  color: rgba(255, 255, 255, 0.2);
+}
+.signup-page input:focus::-moz-placeholder {
+  /* Firefox 19+ */
+  color: rgba(255, 255, 255, 0.2);
+}
+.signup-page input:focus:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+.signup-page .validation-msg {
+  line-height: normal;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  color: #fd7a50;
 }
 
 #screen-signup {
@@ -546,6 +667,7 @@ p {
   width: 30%;
   min-width: 200px;
   color: #000;
+  line-height: normal;
 }
 #screen-signup input::-webkit-input-placeholder {
   color: #4d4c4d;
@@ -591,6 +713,68 @@ p {
     width: 100%;
     margin-left: 0;
   }
+}
+
+.signup-steps {
+  background-color: #f1f1f1;
+  padding-top: 16px;
+}
+.signup-steps .signup-content {
+  max-width: 960px;
+  background-color: white;
+  margin: 0 auto;
+}
+.signup-steps .signup-meet {
+  padding: 22px;
+}
+.signup-steps .signup-meet > span {
+  width: 33%;
+  display: inline-block;
+  vertical-align: top;
+}
+.signup-steps .signup-p-intro {
+  text-align: center;
+  padding: 44px 22px 22px 22px;
+}
+.signup-steps .signup-p-intro h3 {
+  font-size: 14px;
+  color: #b48338;
+  line-height: 2em;
+}
+.signup-steps .info {
+  color: #323232;
+  padding: 0 0 1.5em 0;
+}
+.signup-steps .info > span {
+  font-weight: bold;
+}
+.signup-steps .col-ivy .portrait {
+  background-image: url(/images/ivy.jpg);
+}
+.signup-steps .col-evan .portrait {
+  background-image: url(/images/evan.jpg);
+}
+.signup-steps .col-desc {
+  padding: 22px 0;
+  color: #323232;
+}
+.signup-steps .col-desc h1 {
+  font-size: 27px;
+  line-height: 1.7em;
+}
+.signup-steps .col-desc p {
+  padding: 22px 0;
+  font-size: 16px;
+  line-height: 1.5em;
+}
+.signup-steps .ss-quote {
+  font-style: italic;
+}
+.signup-steps .portrait {
+  background-size: cover;
+  height: 320px;
+  width: 320px;
+  border-radius: 900px;
 }
 
 #screen-signup2 {
@@ -817,7 +1001,7 @@ button,
   -moz-border-bottom-colors: none;
   -moz-border-left-colors: none;
   border-image: none;
-  border-radius: 2px;
+  border-radius: 4px;
   display: inline-block;
   font-size: 1em;
   color: #FFF;

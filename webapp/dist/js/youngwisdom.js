@@ -6,7 +6,11 @@ angular.module('ywLanding',['ngRoute', 'ywText','ywWidgets']);
 angular.module('ywLanding')
 .controller('main', ['$scope', 't', function($scope, msg){
 	$scope.t = msg;
-	$scope.test = 'hey';
+	$scope.hideHeader = false;
+	$scope.setHideHeader = function(b){
+		$scope.hideHeader = true;
+	};
+	
 	$scope.emailFormat = /[a-zA-Z0-9_.]+@[a-zA-Z0-9_.]+/;
 }])
 .controller('ywComments', ['$scope','t', function($scope, msg){
@@ -15,8 +19,8 @@ angular.module('ywLanding')
 		{text: '我从来没有遇到一个团队对记账服务如此热情，青智唯嘉轻松为我们解决了大问题。'}
 	];
 }])
-.controller('PageController', ['$scope','t', function($scope, msg){
-			
+.controller('defaultController', ['$scope','t', function($scope, msg){
+	//
 }])
 .controller('featureController', ['$scope','t','$route', '$routeParams', '$location', function($scope, msg,
 		$route, $routeParams, $location){
@@ -25,10 +29,20 @@ angular.module('ywLanding')
 		//$location.path('/feature/'+ anchor);
 	};
 }])
+.controller('signupController', ['$scope', '$location', function($scope, $location){
+	$scope.signup = function(){
+		if($scope.signupPageForm.$valid){
+			$location.path('/signup-steps');
+		}
+	};	
+}]).controller('signupStepController', ['$scope', '$location', function($scope, $location){
+
+	$scope.setHideHeader(true);
+}])
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 	$routeProvider.when('/', {
 		templateUrl: '/views/home.html',
-		controller: 'PageController'
+		controller: 'defaultController'
 	}).when('/feature', {
 		templateUrl: '/views/feature.html',
 		controller: 'featureController'
@@ -37,7 +51,10 @@ angular.module('ywLanding')
 		controller: 'featureController'
 	}).when('/signup', {
 		templateUrl: '/views/signup-page.html',
-		controller: 'PageController'
+		controller: 'signupController'
+	}).when('/signup-steps', {
+		templateUrl: '/views/signup-steps.html',
+		controller: 'signupStepController'
 	});
 }]);
 
@@ -84,9 +101,9 @@ angular.module('ywLanding')
 							}
 						}
 				});
-			}, 0, false);
+			}, 50, false);
 			
-			console.log('ywMain '+ new Date().getTime());
+			//console.log('ywMain '+ new Date().getTime());
 		}
 	};
 	
@@ -98,7 +115,7 @@ return {
 	
 	compile:function(el, attrs){
 		return function(scope, el, attrs){
-			console.log('ywHome '+ new Date().getTime());
+			//console.log('ywHome '+ new Date().getTime());
 			$timeout(function(){
 				var scrollable = new ScrollableAnim($($window));
 				
@@ -193,7 +210,7 @@ return {
 	return {
 		restrict: 'EAC',
 		link: function(scope, el, attrs){
-			console.log('ywChartAnim '+ new Date().getTime());
+			//console.log('ywChartAnim '+ new Date().getTime());
 			$timeout(function(){
 				var win = $(window);
 				var svg = el.find('svg');
@@ -201,7 +218,7 @@ return {
 					svg.attr('width', win.width());
 				});
 				svg.attr('width', win.width());
-			}, 0, false);
+			}, 50, false);
 		}
 	};
 }])
@@ -209,14 +226,14 @@ return {
 	return {
 		restrict: 'EAC',
 		link: function(scope, el, attrs){
-			console.log('ywCommentAnim '+ new Date().getTime());
+			//console.log('ywCommentAnim '+ new Date().getTime());
 			el.addClass('yw-comment-anim');
 			var bubbles, showingIdx = 0;
 			
 			$timeout(function(){
 					bubbles = el.find('.yw-bubble');
 					bubbles.addClass('yw-anim-hide');
-			}, 0);
+			}, 50);
 			
 			attrs.$observe('ywCommentAnim', function(value){
 				if(value === 'yes' || value === 'true'){
@@ -253,7 +270,7 @@ function($compile, $timeout,$interval, $window){
 return {
 	restrict: 'EAC',
 	link: function(scope, el, attrs){
-		console.log('ywFeature '+ new Date().getTime());
+		//console.log('ywFeature '+ new Date().getTime());
 		scope.$watch('anchorIdx', function(val, old){
 				if(val != null){
 					var offset = el.find('.section-wrap').eq(parseInt(val, 10)).offset().top;
@@ -274,10 +291,28 @@ return {
 							signupIconsTl.restart();
 					}
 			});
-		}, 0, false);
+		}, 50, false);
 	}
 };
 }]);
+
+angular.module('ywLanding')
+.directive('ywSignupSteps', ['$timeout', function($timeout){
+	return{
+		
+		compile:function(){
+			return function(scope, el, attrs){
+				var namecard = el.find('[yw-name-card]');
+				
+				var targetSel = namecard.eq(0).attr('yw-target');
+				$timeout(function(){
+						console.log($(targetSel).offset() );
+				}, 50, false);
+			}
+		}
+	};
+	}])
+;
 
 angular.module('ywWidgets')
 .directive('ywLink', ['$compile', function($compile){

@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 		watch:{
 			js:{
 				files:[ '<%=src_dir%>/js/**/*.js', '!<%=src_dir%>/js/i18n/*.js'],
-				tasks: ['concat:js']
+				tasks: ['concat','uglify']
 			},
 			less:{
 				files:['<%=src_dir%>/styles/**/*.less'],
@@ -38,6 +38,17 @@ module.exports = function (grunt) {
 					'<%=dest_dir%>/js/youngwisdom.js': ['<%=src_dir%>/js/modules.js', '<%=src_dir%>/js/**/*.js', '!<%=src_dir%>/js/i18n/*.js']
 				}
 			}
+		},
+		
+		uglify:{
+			options:{
+				sourceMap: true
+			},
+			js:{
+				files:{
+					'<%=dest_dir%>/js/youngwisdom.min.js':'<%=dest_dir%>/js/youngwisdom.js'
+				}
+			}
 		}
 	});
 	
@@ -45,6 +56,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-autoprefixer');
-	grunt.registerTask('default', ['concat', 'less', 'autoprefixer']);
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.registerTask('default', ['concat', 'less', 'autoprefixer', 'uglify']);
 	
 }

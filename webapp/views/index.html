@@ -17,21 +17,21 @@
 		<script type="text/javascript" src="/vendor/lodash.min.js"></script>
 		<script type="text/javascript" src="/vendor/TweenMax.min.js"></script>
 		<script type="text/javascript" src="/vendor/greensock/ScrollToPlugin.min.js"></script>
-		<script type="text/javascript" src="/dist/js/youngwisdom.js"></script>
+		<script type="text/javascript" src="/dist/js/youngwisdom.min.js"></script>
 	</head>
 	<body ng-controller="main" yw-main>
-		<div class="header">
+		<div class="header" ng-hide="hideHeader">
 			<a class="logo" href="/#/">{{t.logoText}}</a>
 			<div class="nav">
 				<a class="yw-link" href="/#/">{{t.home_page}}</a>
 				<a class="yw-link" href="/#/feature" >{{t.feature}}</a>
 				<a yw-button href="/#/signup" >{{t.signup}}</a>
-				<a class="yw-link" href="/#/community" >{{t.community}}</a>
+				<!-- <a class="yw-link" href="/#/community" >{{t.community}}</a> -->
 				<a class="yw-link" href="/#/signin" >{{t.signin}}</a>
 				<a class="yw-link" href="/#/team" >{{t.team}}</a>
 			</div>
 		</div>
-		<div ng-view class="yw-animation"></div>
+		<div ng-view class="lj-view yw-animation"></div>
 		
 		<div id="screen-contact" class="screen">
 			<span class="left">

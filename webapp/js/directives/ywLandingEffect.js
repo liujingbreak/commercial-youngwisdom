@@ -22,9 +22,9 @@ angular.module('ywLanding')
 							}
 						}
 				});
-			}, 0, false);
+			}, 50, false);
 			
-			console.log('ywMain '+ new Date().getTime());
+			//console.log('ywMain '+ new Date().getTime());
 		}
 	};
 	
@@ -36,7 +36,7 @@ return {
 	
 	compile:function(el, attrs){
 		return function(scope, el, attrs){
-			console.log('ywHome '+ new Date().getTime());
+			//console.log('ywHome '+ new Date().getTime());
 			$timeout(function(){
 				var scrollable = new ScrollableAnim($($window));
 				
@@ -131,7 +131,7 @@ return {
 	return {
 		restrict: 'EAC',
 		link: function(scope, el, attrs){
-			console.log('ywChartAnim '+ new Date().getTime());
+			//console.log('ywChartAnim '+ new Date().getTime());
 			$timeout(function(){
 				var win = $(window);
 				var svg = el.find('svg');
@@ -139,7 +139,7 @@ return {
 					svg.attr('width', win.width());
 				});
 				svg.attr('width', win.width());
-			}, 0, false);
+			}, 50, false);
 		}
 	};
 }])
@@ -147,14 +147,14 @@ return {
 	return {
 		restrict: 'EAC',
 		link: function(scope, el, attrs){
-			console.log('ywCommentAnim '+ new Date().getTime());
+			//console.log('ywCommentAnim '+ new Date().getTime());
 			el.addClass('yw-comment-anim');
 			var bubbles, showingIdx = 0;
 			
 			$timeout(function(){
 					bubbles = el.find('.yw-bubble');
 					bubbles.addClass('yw-anim-hide');
-			}, 0);
+			}, 50);
 			
 			attrs.$observe('ywCommentAnim', function(value){
 				if(value === 'yes' || value === 'true'){
@@ -191,7 +191,7 @@ function($compile, $timeout,$interval, $window){
 return {
 	restrict: 'EAC',
 	link: function(scope, el, attrs){
-		console.log('ywFeature '+ new Date().getTime());
+		//console.log('ywFeature '+ new Date().getTime());
 		scope.$watch('anchorIdx', function(val, old){
 				if(val != null){
 					var offset = el.find('.section-wrap').eq(parseInt(val, 10)).offset().top;
@@ -212,7 +212,7 @@ return {
 							signupIconsTl.restart();
 					}
 			});
-		}, 0, false);
+		}, 50, false);
 	}
 };
 }]);

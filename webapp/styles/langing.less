@@ -24,6 +24,13 @@ html,body{
 input[type="text"], input[type="password"]{
 	padding:0;
 	margin:0;
+	&:-moz-ui-invalid {
+		border:0;
+		outline:none;
+		box-shadow:none;
+		-moz-box-shadow:none;
+		-webkit-box-shadow:none;
+	}
 }
 
 a{
@@ -190,3 +197,5 @@ p{
 		display: none;
 	}
 }
+
+

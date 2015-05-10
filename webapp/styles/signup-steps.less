@@ -1,0 +1,73 @@
+@import "variables.less";
+
+.signup-steps{
+	background-color: rgb(241,241,241);
+	padding-top: @unit-small;
+	
+	.signup-content{
+		max-width: 960px;
+		background-color: white;
+		margin: 0 auto;
+	}
+	
+	.signup-meet{
+		padding: @unit;
+		>span{
+			width: 33%;
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+	.signup-p-intro{
+		text-align: center;
+		padding: @unit*2 @unit @unit @unit;
+		h3{
+			font-size: 14px;
+			color: rgb(180,131,56);
+			line-height: 2em;
+		}
+		
+	}
+	.info{
+		color: @text-black;
+		padding: 0 0 1.5em 0;
+		>span{
+			font-weight: bold;
+		}
+	}
+	
+	.col-ivy{
+		.portrait{
+			background-image: url(/images/ivy.jpg);
+		}
+	}
+	.col-evan{
+		.portrait{
+			background-image: url(/images/evan.jpg);
+		}
+	}
+	.col-desc{
+		padding: @unit 0;
+		color: @text-black;
+		h1{
+			font-size: 27px;
+			line-height: 1.7em;
+		}
+		p{
+			padding: @unit 0;
+			font-size: @unit-small;
+			line-height: 1.5em;
+		}
+	}
+	
+	.ss-quote{
+		font-style: italic;
+	}
+	
+	.portrait{
+		background-size: cover;
+		height: 320px;
+		width: 320px;
+		border-radius: 900px;
+	}
+}

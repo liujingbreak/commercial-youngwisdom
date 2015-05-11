@@ -64,11 +64,11 @@
 	<form class="footer-signup-form" name="signupForm2">
 		<div class="field">
 			<i class="glyphicon glyphicon-envelope"></i>
-			<input ng-model="signupEmail" type="text" name="email" placeholder="邮箱" ng-pattern="emailFormat"/>
+			<input autocomplete="off" ng-model="signupEmail" type="text" name="email" placeholder="邮箱" ng-pattern="emailFormat"/>
 			<div class="validation-msg yw-animation" ng-show="signupForm2.email.$error.pattern" >请输入正确的邮箱地址</div>
 		</div><div class="field">
 			<i class="glyphicon glyphicon-lock"></i>
-			<input ng-model="signinPwd" type="text" name="password" placeholder="密码" ng-trim="true" yw-password="text"/>
-		</div><button yw-button><span>注册</span></button>
+			<input autocomplete="off" ng-model="signinPwd" type="text" name="password" placeholder="密码" ng-trim="true" yw-password="text"/>
+		</div><button yw-button ng-click="signup()"><span>注册</span></button>
 	</form>
 </div>

@@ -7,8 +7,13 @@ angular.module('ywLanding')
 .controller('main', ['$scope', 't', function($scope, msg){
 	$scope.t = msg;
 	$scope.hideHeader = false;
+	$scope.hideContactScreen = false;
+	
 	$scope.setHideHeader = function(b){
-		$scope.hideHeader = true;
+		$scope.hideHeader = b;
+	};
+	$scope.setHideContactScreen = function(b){
+		$scope.hideContactScreen = b;
 	};
 	
 	$scope.emailFormat = /[a-zA-Z0-9_.]+@[a-zA-Z0-9_.]+/;
@@ -19,25 +24,105 @@ angular.module('ywLanding')
 		{text: '我从来没有遇到一个团队对记账服务如此热情，青智唯嘉轻松为我们解决了大问题。'}
 	];
 }])
-.controller('defaultController', ['$scope','t', function($scope, msg){
-	//
+.controller('defaultController', ['$scope','t', '$location', function($scope, msg, $location){
+	$scope.setHideHeader(false);
+	$scope.setHideContactScreen(false);
+	$scope.scroll2Top();
+	$scope.signup = function(){
+			$location.path('/signup-steps');
+	//	}
+	};
 }])
 .controller('featureController', ['$scope','t','$route', '$routeParams', '$location', function($scope, msg,
 		$route, $routeParams, $location){
+	$scope.setHideHeader(false);
+	$scope.setHideContactScreen(false);
+	$scope.scroll2Top();
 	$scope.jump = function(anchor){
 		$scope.anchorIdx = anchor;
 		//$location.path('/feature/'+ anchor);
 	};
 }])
 .controller('signupController', ['$scope', '$location', function($scope, $location){
+	$scope.setHideHeader(true);
+	$scope.setHideContactScreen(true);
+	$scope.scroll2Top();
 	$scope.signup = function(){
 		if($scope.signupPageForm.$valid){
 			$location.path('/signup-steps');
 		}
 	};	
-}]).controller('signupStepController', ['$scope', '$location', function($scope, $location){
-
+}]).controller('signinController', ['$scope', '$location', function($scope, $location){
 	$scope.setHideHeader(true);
+	$scope.setHideContactScreen(true);
+	$scope.scroll2Top();
+	$scope.signup = function(){
+		if($scope.signupPageForm.$valid){
+			$location.path('/signup-steps');
+		}
+	};	
+}]).controller('signupStepController', ['$scope', '$location','$route','$routeParams',
+	function($scope, $location, $route, $routeParams){
+	$scope.setHideHeader(true);
+	$scope.setHideContactScreen(true);
+	$scope.model1 = { name: 'Ivy', title: '会计事务资深顾问'};
+	$scope.model2 = { name: 'Evan', title: '会计师'};
+	$scope.model1.desc = $scope.model1.name;
+	$scope.stepsUI = {
+		showBasicForm: false
+	};
+	
+	if(!$routeParams.signupStep || $routeParams.signupStep === 1)
+		$scope.currStep = 1;
+	else{
+		var step = $scope.currStep = parseInt($routeParams.signupStep, 10);
+		if(step === 2){
+			
+		}
+	}
+	
+	$scope.theModel = $scope.model1;
+	$scope.tipModel = function(model){
+		$scope.theModel = model;
+	};
+	
+	$scope.validate = function(){
+		return $scope.signupStep3Form.$valid;
+	};
+}]).controller('teamController', ['$scope', function($scope){
+	$scope.setHideHeader(false);
+	$scope.setHideContactScreen(false);
+	
+	$scope.teams = [
+		{
+			title: '我们的财税团队',
+			members:[
+				{
+					image:'team_jzz.jpg',
+					intro:'蒋中植'
+				},
+				{	image: 'team_csy.jpg',
+					intro:'陈抒元'
+				}
+				,{	image: 'team_yjl.jpg',
+					intro:'姚嘉伦'
+				}
+			]
+		},
+		{
+			title: '我们的IT团队',
+			members:[
+				{
+					image:'team_ckz.jpg',
+					intro: '柴快长'
+				},
+				{
+					image:'team_dxj.jpg',
+					intro: '段行健'
+				}
+			]
+		}
+	];
 }])
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 	$routeProvider.when('/', {
@@ -55,6 +140,15 @@ angular.module('ywLanding')
 	}).when('/signup-steps', {
 		templateUrl: '/views/signup-steps.html',
 		controller: 'signupStepController'
+	}).when('/signup-steps/:signupStep', {
+		templateUrl: '/views/signup-steps.html',
+		controller: 'signupStepController'
+	}).when('/signin', {
+		templateUrl: '/views/signin-page.html',
+		controller: 'signupController'
+	}).when('/team', {
+		templateUrl: '/views/team-page.html',
+		controller: 'teamController'
 	});
 }]);
 
@@ -81,11 +175,17 @@ angular.module('ywLanding')
 .directive('ywMain',['$timeout', '$interval', '$window', function($timeout,$interval){
 	return {
 		link:function(scope, el, attrs){
-			scope.$on('$viewContentLoaded', function(){
+			//scope.$on('$viewContentLoaded', function(){
+			//	$timeout(function(){
+			//		$(window).scrollTop(0);
+			//	}, 0, false);
+			//});
+			
+			scope.scroll2Top = function(){
 				$timeout(function(){
 					$(window).scrollTop(0);
-				}, 0, false);
-			});
+				}, 50, false);
+			};
 			
 			var header = el.find('.header');
 			$timeout(function(){
@@ -297,22 +397,174 @@ return {
 }]);
 
 angular.module('ywLanding')
-.directive('ywSignupSteps', ['$timeout', function($timeout){
+.directive('ywSignupSteps', ['$timeout', '$q', function($timeout, $q){
 	return{
+		scope: false,
 		
+		controller: ['$scope', function($scope){
+			this.setAnimNameCard = function(element){
+				$scope.animNameCard = element;
+			};
+		}],
 		compile:function(){
 			return function(scope, el, attrs){
-				var namecard = el.find('[yw-name-card]');
 				
-				var targetSel = namecard.eq(0).attr('yw-target');
-				$timeout(function(){
-						console.log($(targetSel).offset() );
-				}, 50, false);
+				var namecards = el.find('[yw-name-card]');
+				namecards.each(function(){
+					var namecard = $(this);
+					namecard.addClass('yw-name-card');
+					$timeout(function(){
+						var targetSel = namecard.eq(0).attr('yw-target');
+						var t = $(targetSel);
+						var offset = t.offset();
+						var top = offset.top + t.height();
+						
+						var offsetParent = namecard.offsetParent();
+						namecard.css({ top: top +'px', left: offset.left - offsetParent.offset().left});
+						
+						
+					}, 50, false);
+				});
+				
+				
+				scope.$watch('currStep', function(step){
+					if(step === 2){
+						
+						$timeout(function(){
+							var nameCardTo;
+							var container = el.find('.signup-meet');
+							container.height(container.height());
+							var nameCard = scope.animNameCard;
+							nameCardTo = { x: container.offset().left,
+								y: container.offset().top
+							};
+							
+							var fadeoutDef = $q.defer();
+							
+							var tl = new TimelineLite({delay: 0.3, onComplete: function(){
+								scope.model1.desc = scope.model1.name + '    ' + scope.model1.title;
+								scope.stepsUI.showBasicForm = true;
+								scope.$apply();
+								fadeoutDef.resolve();
+							}});
+							
+							
+							tl.to(nameCard, 0.7, 
+								{	top: container.outerHeight() - nameCard.height() + 66,
+									left: '-140px', // signup-steps.less: margin-left: @portrait-width/2;
+									width: container.width()/3,
+									'border-radius': 0,
+								}
+							);
+							tl.to(el.find('.signup-p-intro')[0], 0.7, {
+								display: 'none'
+									
+							}, 0);
+							
+							var evan = el.find('.col-evan');
+							TweenLite.set(evan,{  transformOrigin: 'center 30%'});
+							tl.to(evan, 0.7, {
+								height: 0
+							}, 0)
+							
+							tl.to(el.find('.col-desc'), 0.7, { height: 0, padding: 0}, 0);
+							
+							var namecardEvan = el.find('[yw-name-card]').eq(1);
+							tl.to(namecardEvan, 0.7, { opacity: 0, onComplete: function(){ namecardEvan.remove() } }, 0);
+							
+							var portrait = el.find('.portrait').eq(0);
+							portrait.css({position: 'absolute'});
+							tl.to(portrait, 0.7, {
+								height: container.height()
+							}, 0);
+							
+							fadeoutDef.promise.then(function(){
+									console.log(el.find('.underscore'));
+								TweenMax.staggerTo(el.find('.underscore'), 0.4, {width: '90%'}, 0.15);
+							});
+						}, 50, false);
+						
+					}
+				});
 			}
 		}
 	};
 	}])
+.directive('ywNameCard', ['$timeout', function($timeout){
+	var tipboxOutPromis;	
+	
+return {
+	require: '^ywSignupSteps',
+	link: function(scope, el, attrs, ywSignupSteps){
+		var tipbox;
+		var icon = el.find('img');
+		
+		if(attrs.animInStep2 === 'LJ is awesome'){
+			ywSignupSteps.setAnimNameCard(el);
+		}
+		
+		if(scope.currStep !== 1){
+			return;
+		}
+		el.on('mouseenter.ywNameCard', function(e){
+			if(tipboxOutPromis){
+				$timeout.cancel(tipboxOutPromis);
+				tipboxOutPromis = null;
+			}
+			var off = el.offset();
+			if(!tipbox)
+				tipbox = $('.yw-namecard-tip');
+			
+			
+			scope.tipModel(scope[attrs.ywNameCard]);
+			scope.$apply();
+			$timeout(function(){
+					var op =tipbox.offsetParent().offset();
+					tipbox.css({top: icon.offset().top -op.top, left: icon.offset().left - op.left, visibility: 'visible'});
+				}, 0, false);
+		});
+		el.on('mouseleave.ywNameCard', function(e){
+			tipboxOutPromis = $timeout(function(){
+					tipbox.css({visibility: 'hidden'});
+					tipboxOutPromis = null;
+			}, 400, false);
+		});
+		
+		$timeout(function(){
+			if(!tipbox)
+				tipbox = $('.yw-namecard-tip');
+			tipbox.on('mouseenter', function(){
+				if(tipboxOutPromis != null){
+					if($timeout.cancel(tipboxOutPromis)){
+						tipbox.on('mouseleave', function(){
+							tipbox.css({visibility: 'hidden'});
+							tipbox.off('mouseleave');
+						});
+						tipboxOutPromis = null;
+					}
+				}
+			});
+		}, 50, false);
+		
+		
+	}
+};
+}])
 ;
+
+angular.module('ywLanding')
+.directive('ywTeamPage', ['$timeout', '$q', function($timeout, $q){
+	return{
+		link:function(scope, el, attrs){
+			$timeout(function(){
+				var images = el.find('.member>img');
+				TweenMax.set(images, {scaleX:0, scaleY:0});
+				TweenMax.staggerFromTo(images, 1,
+					{scaleX:0, scaleY:0}, {scaleX: 1, scaleY: 1, ease: Elastic.easeOut, delay: .45}, 0.2);
+			}, 100, false);
+		}
+	};
+}]);
 
 angular.module('ywWidgets')
 .directive('ywLink', ['$compile', function($compile){

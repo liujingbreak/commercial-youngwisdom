@@ -1,0 +1,13 @@
+<div class="team-page" yw-team-page>
+	<div ng-repeat="team in teams" class="team" >
+		<h1 class="team-title">{{team.title}}</h1>
+		<div ng-repeat="m in team.members" class="member">
+			<img src="/images/team/{{m.image}}"/>
+			<h5>{{m.name}}</h5>
+			<p>
+				{{m.intro}}
+			</p>
+		</div>
+		
+	</div>
+</div>

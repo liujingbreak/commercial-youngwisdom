@@ -1,4 +1,5 @@
 <div class="signup-steps" yw-signup-steps>
+<form name="signupStep3Form">
 	<div class="signup-content">
 		<div class="signup-meet">
 			<span class="col-ivy">
@@ -16,7 +17,7 @@
 					</div>
 					<div class="info">
 						<h3>最喜欢的食物</h3>
-						<span>上海饺子</span>
+						<span>上海生煎</span>
 					</div>
 				</div>
 			</span><span class="col-evan">
@@ -38,7 +39,7 @@
 					</div>
 				</div>
 			</span><span class="col-desc">
-				<h1>为您提供的财务团队是：Ivy & Evan</h1>
+				<h1>为您提供的财务团队是：{{model1.name}} & {{model2.name}}</h1>
 				<p>
 					Ivy最喜欢的旅游目的地是日本东京，她非常喜欢看电影和电视剧，她在朋友圈里是出了名的电影通，所有的电影排期以及著名演员的近况都是了如指掌。
 				</p>
@@ -49,15 +50,65 @@ Evan喜欢照相，是一个专业业余摄像师，在他参加职业会计师�
 				<p class="ss-quote">
 					我们正期待与您一起工作---
 				</p>
+				<img class="yw-signature" src="/images/ivy.svg"/>
+				<img class="yw-signature" src="/images/ampersand.svg"/>
+				<img class="yw-signature" src="/images/evan.svg"/>
+			</span><span class="col-basic-form" ng-show="stepsUI.showBasicForm">
+				<h3>让我们约个时间谈一下您需要的记账服务</h3>
+				<br/>
+				<h4>我们的工作时间是周一至周五，7:00 AM - 6:00 PM</h4>
+				<br/>
+				<div class="form">
+					<div class="field">
+						<i class="glyphicon glyphicon-user"></i>
+						<input autocomplete="off" ng-model="userName" type="text" name="userName" placeholder="姓名" required/>
+						<div class="validation-msg yw-animation" ng-show="signupStep3Form.userName.$error.pattern" >请输入正确的姓名</div>
+						<div class="underscore"></div>
+					</div>
+					<div class="field">
+						<i class="glyphicon glyphicon-briefcase"></i>
+						<input autocomplete="off" ng-model="userEmail" type="text" name="userCompany" placeholder="公司" required/>
+						<div class="validation-msg yw-animation" ng-show="signupStep3Form.userCompany.$error.pattern" >请输入正确的公司</div>
+						<div class="underscore"></div>
+					</div>
+					<div class="field">
+						<i class="glyphicon glyphicon-time"></i>
+						<input autocomplete="off" ng-model="workingTime" type="text" name="workingTime" placeholder="工作时间" required/>
+						<div class="validation-msg yw-animation" ng-show="signupStep3Form.workingTime.$error.pattern" >请输入正确的工作时间</div>
+						<div class="underscore"></div>
+					</div>
+					<div class="field">
+						<i class="glyphicon glyphicon-phone"></i>
+						<input autocomplete="off" ng-model="phoneNumber" type="text" name="phoneNumber" placeholder="电话" pattern="[0-9*#\-]" required/>
+						<div class="validation-msg yw-animation" ng-show="signupStep3Form.phoneNumber.$error.pattern" >请输入正确的电话</div>
+						<div class="underscore"></div>
+					</div>
+				</div>
 			</span>
 			
-			<div yw-name-card yw-target=".col-ivy .portrait"></div>
-			<div yw-name-card yw-target=".col-ivy .portrait"></div>
+			
+			<div yw-name-card="model1" anim-in-step2="LJ is awesome" yw-target=".col-ivy .portrait"><img ng-show="currStep === 1" src="/images/chat-green.svg"/>{{model1.desc}}</div>
+			<div yw-name-card="model2" yw-target=".col-evan .portrait"><img src="/images/chat-green.svg"/>{{model2.name}}</div>
+			<div class="yw-namecard-tip" style="visibility: hidden">{{ theModel.title }}</div>
 		</div>
 		
-		<div class="signup-progress">
-		
+		<div class="signup-progress noselect">
+			<a class="yw-live-chat"><img src="/images/chat-blue.svg" />在线交流</a>
+			<span class="yw-steps">
+				<div class="circle circle-hightlight" ></div>
+				<div class="circle" ng-class="{'circle-hightlight': currStep > 1}" style="margin-left: 33%;"></div>
+				<div class="circle" style="margin-left: 66%;" ng-class="{'circle-hightlight': currStep > 2}"></div>
+				<div class="circle" style="margin-left: 100%;" ng-class="{'circle-hightlight': currStep > 3}"></div>
+				<div class="line"></div>
+				<div class="line-hl" ng-class="'line-'+ currStep"></div>
+			</span>
+			<span class="yw-right">
+				<a class="yw-step-button noselect" yw-button ng-href="#/signup-steps/{{currStep-1}}" ng-show="currStep > 1">← 上一步</a>
+				<a class="yw-step-button noselect" yw-button ng-href="#/signup-steps/{{currStep+1}}" ng-show="currStep < 4" ng-disabled="!validate()">下一步 →</a>
+				<a class="yw-step-button noselect" yw-button ng-click="done()" ng-show="currStep === 4">完成</a>
+			</span>
 		</div>
 		
 	</div>
+</form>
 </div>

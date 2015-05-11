@@ -1,24 +1,39 @@
 @import "variables.less";
 
+@portrait-width: 280px;
+@payment-step-color: rgb(230,230,230);
+@odd-bg-color: rgb(250, 251, 251);
+@place-holder-color: @text-dark;
+
 .signup-steps{
+	color: @text-black;
+	
 	background-color: rgb(241,241,241);
-	padding-top: @unit-small;
+	padding: @unit-small 0 @unit*3 0;
 	
 	.signup-content{
 		max-width: 960px;
-		background-color: white;
 		margin: 0 auto;
 	}
 	
 	.signup-meet{
+		position: relative;
+		background-color: white;
 		padding: @unit;
 		>span{
 			width: 33%;
 			display: inline-block;
 			vertical-align: top;
 		}
+		.col-basic-form{
+			position: absolute;
+			right: 0;
+			width: 66%;
+			padding: 60px;
+		}
 	}
 	.signup-p-intro{
+		overflow: hidden;
 		text-align: center;
 		padding: @unit*2 @unit @unit @unit;
 		h3{
@@ -37,6 +52,7 @@
 	}
 	
 	.col-ivy{
+		position: relative;
 		.portrait{
 			background-image: url(/images/ivy.jpg);
 		}
@@ -45,8 +61,10 @@
 		.portrait{
 			background-image: url(/images/evan.jpg);
 		}
+		overflow: hidden;
 	}
 	.col-desc{
+		overflow: hidden;
 		padding: @unit 0;
 		color: @text-black;
 		h1{
@@ -65,9 +83,234 @@
 	}
 	
 	.portrait{
-		background-size: cover;
-		height: 320px;
-		width: 320px;
+		background-size: 320px auto;
+		background-position: center top;
+		height: 300px;
+		width: @portrait-width;
 		border-radius: 900px;
+	}
+	
+	.yw-name-card{
+		position: absolute;
+		min-width: 93px;
+		margin-left: @portrait-width/2;
+		margin-top: -66px;
+		background-color: rgb(188,233,199);
+		height: 4em;
+		border-radius: 2em;
+		line-height: 4em;
+		padding: 0 1em;
+		font-weight: bold;
+		text-align: center;
+		cursor: help;
+		img{
+			color: rgba(0,0,0,0.3);
+			padding-right: 1em;
+			vertical-align: middle;
+			transition: opacity .1s ease-out;
+			opacity: 0.5;
+		}
+		
+		&:hover{
+			img{
+				opacity: 1;
+			}
+		}
+	}
+	
+	.yw-namecard-tip{
+		margin-top: 23px;
+		margin-left: -1em;
+		background-color: black;
+		color: white;
+		min-width: 5em;
+		padding: 0 1em;
+		height: 3em;
+		line-height: 3em;
+		position: absolute;
+		border-radius: 2px;
+		text-align: center;
+		
+		&:before{
+			box-sizing: content-box;
+			content: "";
+			display: block;
+			position: absolute;
+			background-color: tranparent;
+			color: white;
+			width: 0;
+			border-left: 7px solid transparent;
+			border-right: 7px solid transparent;
+			border-bottom: 7px solid black;
+			height: 0;
+			left: 1em;
+			top: -7px;
+		}
+	}
+	
+	.yw-signature{
+		height: 80px;
+	}
+	.signup-progress{
+		position: relative;
+		padding-top: 1em;
+		>a, >span{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		
+	}
+	.yw-right{
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		line-height: 66px;
+	}
+	.yw-step-button{
+		display: inline-block;
+		width: 171px;
+		border-radius: 4px;
+		color: white;
+		font-weight: bolder;
+		text-align:center;
+		&:active, &:visited{
+			color: white;
+		}
+		&:hover{
+			background-color: rgb(243,121,83);
+			border-color: rgb(146,73,53);
+			color: white;
+		}
+		
+	}
+	.yw-live-chat{
+		font-weight: bold;
+		color: @text-black;
+		//line-height: 2em;
+		border: 2px solid rgb(68,143,136);
+		border-radius: 2px;
+		padding: @unit-small 1em;
+		cursor: pointer;
+		img{
+			padding-right: 1em;
+		}
+	}
+	
+	.yw-steps{
+		position: relative;
+		width: 300px;
+		margin-left: 5em;
+		.line{
+			position: absolute;
+			height: 2px;
+			background: rgb(202, 202,202);
+			z-index: 1;
+			left: 5px;
+			right: 5px;
+			width: 100%;
+		}
+		.line-hl{
+			position: absolute;
+			height: 2px;
+			background: @bench-hl;
+			z-index: 2;
+			left: 5px;
+			right: 5px;
+			width: 0;
+			&.line-2{
+				width: 33%;
+			}
+			&.line-3{
+				width: 66%;
+			}
+			&.line-4{
+				width: 100%;
+			}
+		}
+		.circle{
+			position: absolute;
+			box-sizing: content-box;
+			top: -8px;
+			background-color: @odd-bg-color;
+			display: inline-block;
+			vertical-align: middle;
+			text-align: center;
+			line-height: 35px;
+			font-weight: bold;
+			width: 12px;
+			height: 12px;
+			border: 2px solid rgb(202, 202,202);
+			border-radius: 100px;
+			//margin-left: 129px;
+			z-index: 3;
+			
+			&:first-child{
+				margin-left: 0;
+			}
+			&.circle-hightlight{
+				background-color: @bench-hl;
+				border: 2px solid @bench-hl;
+			}
+		}
+		i.glyphicon{
+			font-size: @unit-small;
+			line-height: 35px;
+			text-align: center;
+			margin:0;
+		}
+	}
+	
+	.form{
+		margin: @unit*3 0 @unit*2 0;
+		.field{
+			vertical-align: top;
+			margin: 0 @unit;
+			display: block;
+			text-align: left;
+			padding: 14px 0 @unit 0;
+			border-bottom: 1px solid white;
+			transition: all .25s ease-out;
+		}
+		i{
+			margin: 0;
+			font-size: @unit-small;
+			color: @bench-hl;
+			padding-right: @unit;
+		}
+		input{
+			font-size: @unit-small;
+			outline: 0;
+			border: 0;
+			background: transparent;
+			width: 90%;
+			min-width: 200px;
+			&::-webkit-input-placeholder {
+			   color: @place-holder-color;
+			}
+			
+			&:-moz-placeholder { /* Firefox 18- */
+			   color: @place-holder-color;  
+			}
+			
+			&::-moz-placeholder {  /* Firefox 19+ */
+			   color: @place-holder-color;  
+			}
+			
+			&:-ms-input-placeholder {  
+			   color: @place-holder-color;
+			   
+			}
+		}
+		.validation-msg{
+			padding-top: @unit;
+			font-size: 15px;
+			font-weight: bold;
+			text-align: center;
+		}
+	}
+	.underscore{
+		height: 2px;
+		background-color: rgb(225,225,225);
+		width: 0;
 	}
 }

@@ -1,0 +1,136 @@
+@import "variables.less";
+
+@place-holder-color: rgb(185, 185, 185);
+@place-holder-focus-color: rgba(255,255, 255, 0.2);
+
+.signin-page{
+	boxing-sizing: border-box;
+	color: white;
+	background-image: linear-gradient(to right, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%), url('/images/brick.jpg');
+	background-color: #634F40;
+	background-size: cover, cover;
+	
+	.background-people{
+		min-height: 700px;
+		background-image: url('/images/emily.png');
+		background-size: 1176px 562px;
+		background-position: bottom center;
+		background-repeat: no-repeat;
+	}
+	min-height: 100%;
+	
+	h3{
+		line-height: 3em;
+		font-weight: bolder;
+	}
+	
+	.form{
+		width: 40%;
+		max-width: 320px;
+		margin-left: 10%;
+		margin-right: 40%;
+		padding-top: 150px;
+	}
+	.field{
+		border-bottom: 1px solid white;
+		transition: all .25s ease-out;
+		height:3em;
+		line-height: 3em;
+		
+		i{
+			padding-right: 1em;
+		}
+		>*{
+			vertical-align: middle;
+		}
+		.glyphicon{
+			color: @bench-hl;
+		}
+	}
+	button{
+		margin-top: 2em;
+		width: 42%;
+		margin-right: @unit-small;
+		text-align: center;
+		padding-left: 0;
+		padding-right: 0;
+		border-radius: 4px;
+	}
+	.btn-question{
+		padding-right: 0;
+		background: transparent;
+		border: 2px solid @bench-hl;
+		margin-right: 0;
+		&:hover{
+			background-color: rgba(244,122,84, 0.1);
+			border-color: #303030;
+			border: 2px solid @bench-hl;
+		}
+		>span{
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+	.question-char{
+		display: inline-block;
+		width: @unit-small;
+		height: @unit-small;
+		font-size: 11px;
+		line-height: @unit-small;
+		border-radius: 100px;
+		background: @bench-hl;
+		
+	}
+	
+	input{
+		font-size: @unit-small;
+		outline: 0;
+		border: 0;
+		background: transparent;
+		width: 30%;
+		min-width: 200px;
+		color: rgba(255,255,255, 0.6);
+		line-height: normal;
+		&::-webkit-input-placeholder {
+		   color: @place-holder-color;
+		}
+		
+		&:-moz-placeholder { /* Firefox 18- */
+		   color: @place-holder-color;
+		}
+		
+		&::-moz-placeholder {  /* Firefox 19+ */
+		   color: @place-holder-color;
+		}
+		
+		&:-ms-input-placeholder {  
+		   color: @place-holder-color;
+		}
+		
+		&:focus{
+			&::-webkit-input-placeholder {
+			   color: @place-holder-focus-color;
+			}
+			
+			&:-moz-placeholder { /* Firefox 18- */
+			   color: @place-holder-focus-color;  
+			}
+			
+			&::-moz-placeholder {  /* Firefox 19+ */
+			   color: @place-holder-focus-color;  
+			}
+			
+			&:-ms-input-placeholder {  
+			   color: @place-holder-focus-color;
+			}
+		}
+		
+	}
+	.validation-msg{
+		line-height: normal;
+		font-size: 15px;
+		font-weight: bold;
+		text-align: center;
+		color: @bench-hl;
+	}
+}

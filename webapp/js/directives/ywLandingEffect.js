@@ -2,11 +2,17 @@ angular.module('ywLanding')
 .directive('ywMain',['$timeout', '$interval', '$window', function($timeout,$interval){
 	return {
 		link:function(scope, el, attrs){
-			scope.$on('$viewContentLoaded', function(){
+			//scope.$on('$viewContentLoaded', function(){
+			//	$timeout(function(){
+			//		$(window).scrollTop(0);
+			//	}, 0, false);
+			//});
+			
+			scope.scroll2Top = function(){
 				$timeout(function(){
 					$(window).scrollTop(0);
-				}, 0, false);
-			});
+				}, 50, false);
+			};
 			
 			var header = el.find('.header');
 			$timeout(function(){

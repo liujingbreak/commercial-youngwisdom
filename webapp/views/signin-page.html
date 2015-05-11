@@ -1,0 +1,20 @@
+<div class="signin-page">
+	<div class="background-people">
+		<form class="form" name="signupPageForm">
+			<h3>青智专业服务</h3>
+			<p>
+			欢迎您登录
+			我们将为您提供专业的服务
+			</p>
+			<div class="field">
+				<i class="glyphicon glyphicon-envelope"></i>
+				<input ng-model="signupEmail" type="text" name="email" placeholder="邮箱" ng-pattern="emailFormat" required/>
+				<div class="validation-msg yw-animation" ng-show="signupPageForm.email.$error.pattern" >请输入正确的邮箱地址</div>
+			</div><div class="field">
+				<i class="glyphicon glyphicon-lock"></i>
+				<input ng-model="signinPwd" type="text" name="password" placeholder="密码" ng-trim="true" yw-password="text" required/>
+			</div>
+			<button yw-button ng-click="signup()"><span>登录</span></button>
+		</form>
+	</div>
+</div>

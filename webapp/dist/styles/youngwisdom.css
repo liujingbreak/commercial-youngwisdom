@@ -1251,6 +1251,7 @@ p {
   margin: 1em 0;
 }
 .team-page .member {
+  text-align: center;
   display: inline-block;
   vertical-align: top;
   padding: 0 2em;
@@ -1259,6 +1260,7 @@ p {
 .team-page .member img {
   border-radius: 200px;
   border: 4px solid white;
+  margin-bottom: 22px;
 }
 
 

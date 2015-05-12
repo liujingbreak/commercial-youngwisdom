@@ -35,15 +35,21 @@ angular.module('ywLanding')
 	};
 	
 	}])
-.directive('ywHome', ['$compile', '$timeout', '$interval', '$window',
-function($compile, $timeout,$interval, $window){
+.directive('ywHome', ['$compile', '$timeout', '$interval', '$window','$q',
+function($compile, $timeout,$interval, $window, $q){
 return {
 	restrict: 'EAC',
 	
 	compile:function(el, attrs){
 		return function(scope, el, attrs){
 			//console.log('ywHome '+ new Date().getTime());
-			$timeout(function(){
+			$q.all([scope.signupScreenReady.promise ,
+			scope.introScreenReady.promise,
+			scope.whatScreenReady.promise,
+			scope.commentsScreenReady.promise,
+			scope.signup2ScreenReady.promise]).then(function(){
+			
+			//$timeout(function(){
 				var scrollable = new ScrollableAnim($($window));
 				
 				// --- chart animation ---
@@ -128,7 +134,8 @@ return {
 							}
 						}
 				});
-			}, 1000, false);
+			//}, 1000, false);
+	});
 		}
 	}
 };
@@ -192,8 +199,8 @@ return {
 		}
 	};
 }])
-.directive('ywFeature', ['$compile', '$timeout', '$interval', '$window',
-function($compile, $timeout,$interval, $window){
+.directive('ywFeature', ['$compile', '$timeout', '$interval', '$window','$q',
+function($compile, $timeout,$interval, $window, $q){
 return {
 	restrict: 'EAC',
 	link: function(scope, el, attrs){
@@ -206,8 +213,8 @@ return {
 			});
 		
 		
-		
-		$timeout(function(){
+		$q.all([scope.signup2ScreenReady.promise]).then(
+		function(){
 			var scrollable = new ScrollableAnim($(window));
 			var signupIconsTl = new TimelineLite({paused: true});
 			signupIconsTl.staggerFromTo($('#screen-signup2 .yw-icon'), 1, {scaleX:0, scaleY:0}, {scaleX: 1, scaleY: 1, ease: Elastic.easeOut, repeat:-1, delay: 0.5, repeatDelay: 5}, 0.3);
@@ -218,7 +225,7 @@ return {
 							signupIconsTl.restart();
 					}
 			});
-		}, 50, false);
+		});
 	}
 };
 }]);

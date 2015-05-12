@@ -20,7 +20,15 @@ angular.module('ywLanding')
 		{text: '我从来没有遇到一个团队对记账服务如此热情，青智唯嘉轻松为我们解决了大问题。'}
 	];
 }])
-.controller('defaultController', ['$scope','t', '$location', function($scope, msg, $location){
+.controller('homeController', ['$scope','t', '$location', '$q', function($scope, msg, $location, $q){
+	$scope.signupScreenReady = $q.defer();
+	$scope.introScreenReady = $q.defer();
+	$scope.whatScreenReady = $q.defer();
+	$scope.commentsScreenReady = $q.defer();
+	$scope.signup2ScreenReady = $q.defer();
+	
+	
+	
 	$scope.setHideHeader(false);
 	$scope.setHideContactScreen(false);
 	$scope.scroll2Top();
@@ -28,9 +36,12 @@ angular.module('ywLanding')
 			$location.path('/signup-steps');
 	//	}
 	};
+	
 }])
-.controller('featureController', ['$scope','t','$route', '$routeParams', '$location', function($scope, msg,
-		$route, $routeParams, $location){
+.controller('featureController', ['$scope','t','$route', '$routeParams', '$q','$location',
+		function($scope, msg,
+		$route, $routeParams, $q, $location){
+	$scope.signup2ScreenReady = $q.defer();
 	$scope.setHideHeader(false);
 	$scope.setHideContactScreen(false);
 	$scope.scroll2Top();
@@ -123,7 +134,7 @@ angular.module('ywLanding')
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 	$routeProvider.when('/', {
 		templateUrl: '/views/home.html',
-		controller: 'defaultController'
+		controller: 'homeController'
 	}).when('/feature', {
 		templateUrl: '/views/feature.html',
 		controller: 'featureController'

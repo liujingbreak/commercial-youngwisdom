@@ -1,7 +1,7 @@
 <div class="home-page"  yw-home>
-	<div id="screen-signup" ng-include="'views/sign-up-screen.html'" class="screen"></div>
-	<div id="screen-intro" ng-include="'views/intro-screen.html'" class="screen"></div>
-	<div id="screen-what" ng-include="'views/what-screen.html'" class="screen"></div>
-	<div id="screen-comments" ng-include="'views/comments-screen.html'" class="screen"></div>
-	<div id="screen-signup2" ng-include="'views/sign-up2-screen.html'" class="screen"></div>
+	<div id="screen-signup" ng-include="'views/sign-up-screen.html'" class="screen" onload="signupScreenReady.resolve()"></div>
+	<div id="screen-intro" ng-include="'views/intro-screen.html'" class="screen" onload="introScreenReady.resolve()"></div>
+	<div id="screen-what" ng-include="'views/what-screen.html'" class="screen" onload="whatScreenReady.resolve()"></div>
+	<div id="screen-comments" ng-include="'views/comments-screen.html'" class="screen" onload="commentsScreenReady.resolve()"></div>
+	<div id="screen-signup2" ng-include="'views/sign-up2-screen.html'" class="screen" onload="signup2ScreenReady.resolve()"></div>
 </div>

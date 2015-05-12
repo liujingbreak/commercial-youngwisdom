@@ -60,13 +60,15 @@ angular.module('ywWidgets')
 					el.attr('type', 'text');
 					toggle.removeClass('glyphicon-eye-open');
 					toggle.addClass('glyphicon-eye-close');
-					hints.html('隐藏');
+					if(hints)
+						hints.html('隐藏');
 				}
 				else{
 					el.attr('type', 'password');
 					toggle.removeClass('glyphicon-eye-close');
 					toggle.addClass('glyphicon-eye-open');
-					hints.html('显示');
+					if(hints)
+						hints.html('显示');
 				}
 			});
 		}

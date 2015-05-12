@@ -1,5 +1,5 @@
 # youngwisdom
-This is an UI refactoring project for commercial web site www.youngwisdom.com.cn
+This is an UI refactoring project for a commercial web site
 
 A real live demo is running in
 
@@ -7,10 +7,5 @@ https://youngwisdom.herokuapp.com
 
 ## How to install
 
-- Install latest node.js.
-- In root folder, run commands,
+Contact LJ if you are interested in this web site project.
 
-`npm install`
-`youngwisdom-node/bin/www`
-
-open browser with URL http://localhost:19810

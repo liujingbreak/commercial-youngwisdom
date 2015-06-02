@@ -196,91 +196,6 @@
   }
 }
 
-#screen-intro {
-  background: #f6f6f6;
-  height: auto;
-}
-#screen-intro h1 {
-  text-align: center;
-}
-#screen-intro p {
-  text-align: center;
-  font-size: 16px;
-}
-#screen-intro .background {
-  height: 424px;
-  width: 100%;
-  top: 0;
-  z-index: -1;
-  background: url(/images/emily.jpg) top center;
-  background-size: 1147px 424px;
-}
-#screen-intro .timeline-section {
-  max-width: 870px;
-  position: relative;
-  top: -80px;
-  margin: 0 auto;
-}
-#screen-intro .timeline-section .glyphicon {
-  position: absolute;
-  top: 44px;
-  font-size: 16px;
-}
-#screen-intro .timeline {
-  position: relative;
-  top: 8px;
-  width: 100%;
-  height: 2px;
-  background-color: #D1D1D1;
-}
-#screen-intro .line-dot {
-  box-sizing: content-box;
-  width: 12px;
-  height: 12px;
-  border: 2px solid #D1D1D1;
-  top: -7px;
-  background-color: #FFF;
-  border-radius: 8px;
-  position: absolute;
-}
-#screen-intro .line-dot.lightened {
-  border: 2px solid #EF6D44;
-}
-#screen-intro .anim-timeline {
-  position: relative;
-  width: 0%;
-  height: 2px;
-  background-color: #EF6D44;
-}
-#screen-intro .steps {
-  margin: auto;
-  max-width: 1000px;
-  text-align: center;
-  padding-bottom: 3em;
-}
-#screen-intro .step {
-  display: inline-block;
-  vertical-align: top;
-  width: 25%;
-  color: #999999;
-  font-size: 16px;
-}
-#screen-intro .step p,
-#screen-intro .step h3 {
-  text-align: left;
-  padding: 0 6px;
-}
-#screen-intro .glyphicon {
-  color: #419088;
-  font-size: 22px;
-}
-@media all and (max-width: 700px) {
-  #screen-intro .step {
-    display: block;
-    width: 100%;
-  }
-}
-
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url("/fonts/glyphicons-halflings-regular.eot");
@@ -288,9 +203,13 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'FZLTXHK';
+  src: url("/fonts/FZLTXHK.ttf") format("truetype");
+}
 html,
 body {
-  font-family: arial, 'Microsoft Yahei', 'Hiragino Sans GB', sans-serif;
+  font-family: 'FZLTXHK', 'Microsoft Yahei', 'Hiragino Sans GB', arial, sans-serif;
   height: 100%;
   color: #535353;
   font-size: 16px;
@@ -478,6 +397,91 @@ p {
 }
 .yw-comment-anim .yw-anim-hide {
   display: none;
+}
+
+#screen-intro {
+  background: #f6f6f6;
+  height: auto;
+}
+#screen-intro h1 {
+  text-align: center;
+}
+#screen-intro p {
+  text-align: center;
+  font-size: 16px;
+}
+#screen-intro .background {
+  height: 424px;
+  width: 100%;
+  top: 0;
+  z-index: -1;
+  background: url(/images/emily.jpg) top center;
+  background-size: 1147px 424px;
+}
+#screen-intro .timeline-section {
+  max-width: 870px;
+  position: relative;
+  top: -80px;
+  margin: 0 auto;
+}
+#screen-intro .timeline-section .glyphicon {
+  position: absolute;
+  top: 44px;
+  font-size: 16px;
+}
+#screen-intro .timeline {
+  position: relative;
+  top: 8px;
+  width: 100%;
+  height: 2px;
+  background-color: #D1D1D1;
+}
+#screen-intro .line-dot {
+  box-sizing: content-box;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #D1D1D1;
+  top: -7px;
+  background-color: #FFF;
+  border-radius: 8px;
+  position: absolute;
+}
+#screen-intro .line-dot.lightened {
+  border: 2px solid #EF6D44;
+}
+#screen-intro .anim-timeline {
+  position: relative;
+  width: 0%;
+  height: 2px;
+  background-color: #EF6D44;
+}
+#screen-intro .steps {
+  margin: auto;
+  max-width: 1000px;
+  text-align: center;
+  padding-bottom: 3em;
+}
+#screen-intro .step {
+  display: inline-block;
+  vertical-align: top;
+  width: 25%;
+  color: #999999;
+  font-size: 16px;
+}
+#screen-intro .step p,
+#screen-intro .step h3 {
+  text-align: left;
+  padding: 0 6px;
+}
+#screen-intro .glyphicon {
+  color: #419088;
+  font-size: 22px;
+}
+@media all and (max-width: 700px) {
+  #screen-intro .step {
+    display: block;
+    width: 100%;
+  }
 }
 
 .signin-page {

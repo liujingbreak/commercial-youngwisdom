@@ -25,6 +25,9 @@
     "grunt-contrib-cssmin": "^0.12.2",
     "grunt-contrib-less": "^1.0.1",
     "grunt-contrib-uglify": "^0.9.1",
-    "grunt-contrib-watch": "^0.6.1"
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-hashres": "^0.4.1",
+    "grunt-remove-logging": "^0.2.0",
+    "jit-grunt": "^0.9.1"
   }
 }

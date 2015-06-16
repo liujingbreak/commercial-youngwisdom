@@ -1,4 +1,7 @@
 module.exports = function (grunt) {
+	// Load NPM modules as needed
+	require('jit-grunt')(grunt);
+  
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		src_dir: 'webapp',
@@ -49,14 +52,19 @@ module.exports = function (grunt) {
 					'<%=dest_dir%>/js/youngwisdom.min.js':'<%=dest_dir%>/js/youngwisdom.js'
 				}
 			}
+		},
+		
+		hashres: {
+			options: {
+				fileNameFormat: '${name}.${ext}?${hash}',
+				renameFiles: false
+			},
+			prod: {
+				src: ['<%= dest_dir %>/js/*.js', '<%= dest_dir %>/styles/*.css'],
+				dest: '<%=src_dir%>/views/index.html'
+			}
 		}
 	});
-	
-	grunt.loadNpmTasks('grunt-contrib-less');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-autoprefixer');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.registerTask('default', ['concat', 'less', 'autoprefixer', 'uglify']);
-	
+	grunt.registerTask('production', ['concat', 'less', 'autoprefixer', 'uglify', 'hashres']);
 }

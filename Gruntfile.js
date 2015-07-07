@@ -19,7 +19,7 @@ module.exports = function (grunt) {
 			  browsers: ['last 3 versions', 'ie 8', 'ie 9']
 			},
 			all:{
-				src:['<%=dest_dir%>/styles/*.css'],
+				src:['<%=dest_dir%>/styles/*.css','!<%=dest_dir%>/styles/youngwisdom.css'],
 				dest:'<%=dest_dir%>/styles/youngwisdom.css'
 			}
 		},
